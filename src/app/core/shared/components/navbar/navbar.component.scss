@@ -22,7 +22,6 @@
 
   .navbar-content {
     width: 100%;
-    max-width: 1200px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -31,6 +30,22 @@
   .logo {
     height: 40px;
     cursor: pointer;
+  }
+
+  .menu-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .user-text {
+    font-size: map-get($spacing-map, "lg");
+    font-weight: normal;
+
+    > span {
+      font-weight: bold;
+    }
+    
   }
 
   .menu {
