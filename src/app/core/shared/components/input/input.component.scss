@@ -1,0 +1,43 @@
+@import '../../../../assets/styles/spacing';
+@import '../../../../assets/styles/variables';
+@import '../../../../theme/theme';
+
+input {
+  width: 100%;
+  font-size: 16px;
+  border-radius: $border-radius;
+  transition: $transition;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+  outline: none;
+  caret-color: $primary-color;
+  
+  &::placeholder {
+    color: $placeholder-color;
+  }
+
+  &.default {
+    border: 3px solid $off-color;
+    background-color: transparent;
+    color: $text-color;
+
+    &:focus {
+      border-color: $primary-color;
+    }
+  }
+
+  &.sm {
+    padding: $spacing-sm $spacing-sm;
+    font-size: 14px;
+  }
+  
+  &.md {
+    padding: $spacing-md $spacing-md;
+    font-size: 16px;
+  }
+  
+  &.lg {
+    padding: $spacing-lg $spacing-giant;
+    font-size: 24px;
+  }
+}
