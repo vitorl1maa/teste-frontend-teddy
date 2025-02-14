@@ -14,6 +14,12 @@
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   padding: map-get($spacing-map, "giant");
 
+  .top-nav {
+    display: flex;
+    align-items: center;
+    gap: map-get($spacing-map, 'giant');
+  }
+
   .navbar-content {
     width: 100%;
     max-width: 1200px;
@@ -24,11 +30,14 @@
 
   .logo {
     height: 40px;
+    cursor: pointer;
   }
 
   .menu {
     list-style: none;
     display: flex;
+    justify-content: center;
+    align-self: center;
     gap: map-get($spacing-map, "lg");
 
     li {
@@ -36,11 +45,13 @@
         text-decoration: none;
         color: $text-color;
         font-size: 16px;
-        font-weight: 500;
+        font-weight: 300;
         transition: color 0.3s ease;
+        
 
         &:hover {
           color: $primary-color;
+          text-decoration: underline;
         }
       }
     }

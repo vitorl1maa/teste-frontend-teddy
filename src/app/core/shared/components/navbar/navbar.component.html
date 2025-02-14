@@ -1,15 +1,23 @@
 <nav class="navbar">
   <div class="navbar-content">
-    <button class="menu-button" (click)="toggleMenu()">
-      ☰
-    </button>
+    <div class="top-nav">
+      <button class="menu-button" (click)="toggleMenu()">
+        ☰
+      </button>
 
-    <img src="../../../../../assets/images/Logo-Teddy.png" alt="Teddy Logo" class="logo" />
+      <img src="/assets/images/Logo-Teddy.png" alt="Teddy Logo" class="logo" />
+    </div>
 
     <ul class="menu">
       <li *ngFor="let item of menuItems">
         <a [href]="item.link">{{ item.label }}</a>
       </li>
     </ul>
+
+    <div>
+      <p class="user-text">
+        Olá, <span>Usuário</span>
+      </p>
+    </div>
   </div>
 </nav>
