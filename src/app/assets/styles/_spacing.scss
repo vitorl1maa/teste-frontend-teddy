@@ -1,0 +1,24 @@
+$spacing-xsm: 4px;
+$spacing-sm: 8px;
+$spacing-md: 12px;
+$spacing-lg: 16px;
+$spacing-xlg: 20px;
+$spacing-xxlg: 24px;
+$spacing-huge: 32px;
+$spacing-giant: 40px;
+
+@mixin spacing($size) {
+  margin: map-get($spacing-map, $size, 0);
+  padding: map-get($spacing-map, $size, 0);
+}
+
+$spacing-map: (
+  "xsm": $spacing-xsm,
+  "sm": $spacing-sm,
+  "md": $spacing-md,
+  "lg": $spacing-lg,
+  "xlg": $spacing-xlg,
+  "xxlg": $spacing-xxlg,
+  "huge": $spacing-huge,
+  "giant": $spacing-giant
+);
