@@ -8,11 +8,43 @@
       <img src="/assets/images/Logo-Teddy.png" alt="Teddy Logo" class="logo" />
     </div>
 
-    <ul class="menu">
-      <li *ngFor="let item of menuItems">
-        <a [href]="item.link">{{ item.label }}</a>
-      </li>
-    </ul>
+    <div class="sidebar" [class.open]="isMenuOpen">
+      <div class="top-sidebar">
+        <button class="close-button" (click)="toggleMenu()">
+          <span>
+            <app-icon [icon]="'arrowLeft'" [size]="'sm'"></app-icon>
+          </span>
+        </button>
+        <img src="/assets/images/Logo-Teddy.png" alt="Teddy Logo" class="logo" />
+      </div>
+
+      <div>
+        <ul class="menu navigation-menu-mobile">
+          <li *ngFor="let item of menuItems">
+            <a [href]="item.link">{{ item.label }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <ul class="content-sidebar">
+          <li *ngFor="let item of sideItems">
+            <a [href]="item.link">
+              <img [src]="'/assets/icons/' + item.icon + '.svg'" alt="{{item.label}} icon" />
+              {{ item.label }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <ul class="menu">
+        <li *ngFor="let item of menuItems">
+          <a [href]="item.link">{{ item.label }}</a>
+        </li>
+      </ul>
+    </div>
 
     <div>
       <p class="user-text">

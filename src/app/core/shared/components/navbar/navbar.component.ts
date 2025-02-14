@@ -10,6 +10,7 @@ import { IconComponent } from "../icon/icon.component";
 })
 export class NavbarComponent {
   @Input() menuItems: { label: string; link: string }[] = []
+  @Input() sideItems: { icon: string; label: string; link: string }[] = [];
 
   isMenuOpen = false;
 
