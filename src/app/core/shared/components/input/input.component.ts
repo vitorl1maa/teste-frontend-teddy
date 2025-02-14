@@ -9,7 +9,7 @@ import { Component, Input } from '@angular/core';
 })
 export class InputComponent {
   @Input() placeholder: string = "Digite aqui...";
-  @Input() type: string = 'default';
+  @Input() type: 'text' | 'currency' = 'text';
   @Input() size: 'sm' | 'md' | 'lg' = 'md';
   @Input() disabled: boolean = false;
 
