@@ -1,4 +1,4 @@
-import { Plus, Minus, Trash2, Pencil, X, AlignJustify } from "lucide-angular";
+import { Plus, Minus, Trash2, Pencil, X, AlignJustify, ArrowLeft } from "lucide-angular";
 
 export type IconType =
   | typeof Plus
@@ -6,4 +6,5 @@ export type IconType =
   | typeof Trash2
   | typeof Pencil
   | typeof X
-  | typeof AlignJustify;
+  | typeof AlignJustify
+  | typeof ArrowLeft;
