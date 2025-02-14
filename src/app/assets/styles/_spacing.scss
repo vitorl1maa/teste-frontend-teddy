@@ -8,8 +8,8 @@ $spacing-huge: 32px;
 $spacing-giant: 40px;
 
 @mixin spacing($size) {
-  margin: map-get($spacing-map, $size, 0);
-  padding: map-get($spacing-map, $size, 0);
+  margin: map-get($spacing-map, $size);
+  padding: map-get($spacing-map, $size);
 }
 
 $spacing-map: (

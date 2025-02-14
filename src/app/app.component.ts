@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { IconComponent } from "./core/shared/components/icon/icon.component";
-import { ButtonComponent } from "./core/shared/components/button/button.component";
-import { InputComponent } from "./core/shared/components/input/input.component";
+import { RegistrationPageComponent } from "./pages/registration-page/registration-page.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, IconComponent, ButtonComponent, InputComponent],
+  imports: [RouterOutlet, RegistrationPageComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
