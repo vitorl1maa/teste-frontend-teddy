@@ -1,26 +1,19 @@
 import { Component } from '@angular/core';
-import { ModalRootComponent } from "../../core/shared/components/modal/modal-root/modal-root.component";
-import { ModalHeaderComponent } from "../../core/shared/components/modal/modal-header/modal-header.component";
-import { InputComponent } from "../../core/shared/components/input/input.component";
-import { ModalBodyComponent } from "../../core/shared/components/modal/modal-body/modal-body.component";
-import { ModalFooterComponent } from "../../core/shared/components/modal/modal-footer/modal-footer.component";
 import { ButtonComponent } from "../../core/shared/components/button/button.component";
-
 import { LayoutComponent } from "../../core/shared/layout/layout/layout.component";
 import { CommonModule } from '@angular/common';
 import { ClientsListComponent } from "./components/clients-list/client-list.component";
+import { ModalCreatComponent } from "./components/modal-actions/modal-creat/modal-creat.component";
+import { ModalEditComponent } from "./components/modal-actions/modal-edit/modal-edit.component";
+import { ModalDeleteComponent } from "./components/modal-actions/modal-delete/modal-delete.component";
 
 @Component({
   selector: 'app-clients-page',
-  imports: [CommonModule, ModalRootComponent, ModalHeaderComponent, InputComponent, ModalBodyComponent, ModalFooterComponent, ButtonComponent, LayoutComponent, ClientsListComponent],
+  imports: [CommonModule, ButtonComponent, LayoutComponent, ClientsListComponent, ModalCreatComponent, ModalEditComponent, ModalDeleteComponent],
   templateUrl: './clients-page.component.html',
   styleUrl: './clients-page.component.scss'
 })
 export class ClientsPageComponent {
-
-  isModalOpen = false;
-  modalTitle = 'Criar Cliente';
-  modalButtonText = 'Criar';
 
   menuItems = [
     { label: 'Clientes', link: '' },
@@ -34,20 +27,30 @@ export class ClientsPageComponent {
     { icon: 'products-icon', label: 'Produtos', link: '' }
   ];
 
+  showModalCreate = false;
+  showModalEdit = false;
+  showModalDelete = false;
+
+
+  selectedClient = { name: '', salary: 0, companyValue: 0 };
+
   openCreateModal() {
-    this.modalTitle = 'Criar Cliente';
-    this.modalButtonText = 'Criar';
-    this.isModalOpen = true;
+    this.showModalCreate = true;
   }
 
   openEditModal() {
-    this.modalTitle = 'Editar Cliente';
-    this.modalButtonText = 'Editar';
-    this.isModalOpen = true;
+    this.showModalEdit = true;
+  }
+
+  openDeleteModal() {
+    this.showModalDelete = true;
   }
 
   closeModal() {
-    this.isModalOpen = false;
+    this.showModalCreate = false;
+    this.showModalEdit = false;
+    this.showModalDelete = false;
   }
+
 }
 

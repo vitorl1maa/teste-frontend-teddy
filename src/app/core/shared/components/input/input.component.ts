@@ -12,5 +12,6 @@ export class InputComponent {
   @Input() type: 'text' | 'currency' = 'text';
   @Input() size: 'sm' | 'md' | 'lg' = 'md';
   @Input() disabled: boolean = false;
+  @Input() value: any = '';
 
 }
