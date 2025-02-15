@@ -1,14 +1,15 @@
 <section class="client-list-component">
-  <app-card-root>
-    <app-card-header [title]="'Eduardo'"></app-card-header>
+  <app-card-root *ngFor="let client of clients">
+    <app-card-header [title]="client.name"></app-card-header>
     <app-card-boody>
-      <p>Salário: R$3.500,00</p>
-      <p>Empresa: R$120.000,00</p>
+      <p>Salário: R${{ client.salary | number:'1.2-2' }}</p>
+      <p>Empresa: R${{ client.companyValuation | number:'1.2-2' }}</p>
     </app-card-boody>
     <app-card-footer>
-      <app-icon [icon]="'plus'" [size]="'md'"></app-icon>
-      <app-icon [icon]="'pencil'" [size]="'sm'" (click)="onEditClient()"></app-icon>
-      <app-icon [icon]="'trash2'" [size]="'sm'" [color]="'dangerous'" (click)="onDeleteClient()"></app-icon>
+      <app-icon [icon]="isSelected[client.id] ? 'check' : 'plus'" [size]="'md'" (click)="toggleIcon(client.id)">
+      </app-icon>
+      <app-icon [icon]="'pencil'" [size]="'sm'" (click)="onEditClient(client.id)"></app-icon>
+      <app-icon [icon]="'trash2'" [size]="'sm'" [color]="'dangerous'" (click)="onDeleteClient(client.id)"></app-icon>
     </app-card-footer>
   </app-card-root>
 </section>

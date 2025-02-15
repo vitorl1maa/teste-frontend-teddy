@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { ButtonComponent } from "../../core/shared/components/button/button.component";
 import { LayoutComponent } from "../../core/shared/layout/layout/layout.component";
 import { CommonModule } from '@angular/common';
-import { ClientsListComponent } from "./components/clients-list/client-list.component";
+import { ClientsListComponent } from "./components/clients-list/clients-list.component";
 import { ModalCreatComponent } from "./components/modal-actions/modal-creat/modal-creat.component";
 import { ModalEditComponent } from "./components/modal-actions/modal-edit/modal-edit.component";
 import { ModalDeleteComponent } from "./components/modal-actions/modal-delete/modal-delete.component";
+import { CLIENTS_MOCK } from '../../mocks/clients.mock';
 
 @Component({
   selector: 'app-clients-page',
@@ -14,6 +15,7 @@ import { ModalDeleteComponent } from "./components/modal-actions/modal-delete/mo
   styleUrl: './clients-page.component.scss'
 })
 export class ClientsPageComponent {
+  clients = CLIENTS_MOCK.clients;
 
   menuItems = [
     { label: 'Clientes', link: '' },
@@ -38,11 +40,13 @@ export class ClientsPageComponent {
     this.showModalCreate = true;
   }
 
-  openEditModal() {
+  openEditModal(client: any) {
+    this.selectedClient = client;
     this.showModalEdit = true;
   }
 
-  openDeleteModal() {
+  openDeleteModal(client: any) {
+    this.selectedClient = client;
     this.showModalDelete = true;
   }
 

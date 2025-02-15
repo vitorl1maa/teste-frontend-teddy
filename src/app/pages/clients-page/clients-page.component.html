@@ -15,7 +15,9 @@
         </div>
       </section>
 
-      <app-clients-list (editClient)="openEditModal()" (deleteClient)="openDeleteModal()"></app-clients-list>
+      <app-clients-list [clients]="clients" (editClient)="openEditModal($event)"
+        (deleteClient)="openDeleteModal($event)">
+      </app-clients-list>
 
       <app-button label="Criar cliente" [type]="'outline'" (click)="openCreateModal()"></app-button>
     </ng-content>
