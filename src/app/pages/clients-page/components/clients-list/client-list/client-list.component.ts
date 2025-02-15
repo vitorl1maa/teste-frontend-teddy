@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CardRootComponent } from "../../../../../core/shared/components/card/card-root/card-root.component";
 import { CardHeaderComponent } from "../../../../../core/shared/components/card/card-header/card-header.component";
 import { CardBoodyComponent } from "../../../../../core/shared/components/card/card-boody/card-boody.component";
@@ -12,5 +12,11 @@ import { IconComponent } from "../../../../../core/shared/components/icon/icon.c
   styleUrl: './client-list.component.scss'
 })
 export class ClientListComponent {
+
+  @Output() editClient = new EventEmitter<string>();
+
+  onEditClient() {
+    this.editClient.emit();
+  }
 
 }

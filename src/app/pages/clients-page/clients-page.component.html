@@ -9,17 +9,19 @@
           <div class="client-header-select">
             <span>Clientes por página: </span>
             <select>
-              <option value="volvo">12</option>
+              <option>12</option>
             </select>
           </div>
         </div>
       </section>
-      <app-client-list></app-client-list>
-      <app-button label="Criar cliente" [type]="'outline'"></app-button>
+
+      <app-client-list (editClient)="openEditModal()"></app-client-list>
+
+      <app-button label="Criar cliente" [type]="'outline'" (click)="openCreateModal()"></app-button>
     </ng-content>
 
-    <app-modal-root>
-      <app-modal-header [title]="'Título do Modal'"></app-modal-header>
+    <app-modal-root *ngIf="isModalOpen">
+      <app-modal-header [title]="modalTitle" (onClose)="closeModal()"></app-modal-header>
       <app-modal-body>
         <app-input type="text" placeholder="Digite o nome:" size="md"></app-input>
         <app-input type="currency" placeholder="Digite o salário:" size="md"></app-input>
@@ -27,7 +29,7 @@
       </app-modal-body>
 
       <app-modal-footer>
-        <app-button label="Criar" type="default" size="md"></app-button>
+        <app-button [label]="modalButtonText" type="default" size="md"></app-button>
       </app-modal-footer>
     </app-modal-root>
 
