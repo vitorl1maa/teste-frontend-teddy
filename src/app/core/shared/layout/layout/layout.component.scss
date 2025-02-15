@@ -1,6 +1,12 @@
 @import "../../../../theme/theme";
 
-.layout-content {
-  min-height: 100vh;
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   background-color: $background-color;
+}
+
+.layout-content {
+  flex: 1;
 }
