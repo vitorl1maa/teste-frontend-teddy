@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from "../../core/shared/components/navbar/navbar.component";
 import { ModalRootComponent } from "../../core/shared/components/modal/modal-root/modal-root.component";
 import { ModalHeaderComponent } from "../../core/shared/components/modal/modal-header/modal-header.component";
 import { InputComponent } from "../../core/shared/components/input/input.component";
@@ -11,7 +10,7 @@ import { LayoutComponent } from "../../core/shared/layout/layout/layout.componen
 
 @Component({
   selector: 'app-clients-page',
-  imports: [NavbarComponent, ModalRootComponent, ModalHeaderComponent, InputComponent, ModalBodyComponent, ModalFooterComponent, ButtonComponent, ClientListComponent, LayoutComponent],
+  imports: [ModalRootComponent, ModalHeaderComponent, InputComponent, ModalBodyComponent, ModalFooterComponent, ButtonComponent, ClientListComponent, LayoutComponent],
   templateUrl: './clients-page.component.html',
   styleUrl: './clients-page.component.scss'
 })

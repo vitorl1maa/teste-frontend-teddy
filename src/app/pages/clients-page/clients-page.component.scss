@@ -10,6 +10,11 @@
   padding-left: $spacing-giant2x;
   padding-right: $spacing-giant2x;
 
+  @media (max-width: 700px) {
+    padding-left: map-get($spacing-map, "md");
+    padding-right: map-get($spacing-map, "md");
+  }
+
   .client-content-list {
     .client-header-list {
       display: flex;
@@ -22,9 +27,16 @@
           font-weight: bold;
         }
       }
+
+      @media (max-width: 700px) {
+        > p {
+          text-align: left;
+        }
+      }
     }
 
     .client-header-select {
+      display: flex;
       > span {
         @include font-size("md");
         padding: $spacing-xsm;
@@ -37,6 +49,16 @@
         padding: $spacing-xsm;
         cursor: pointer;
         outline: none;
+      }
+
+      @media (max-width: 700px) {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: end;
+        > select {
+          align-self: flex-end;
+        }
       }
     }
   }
