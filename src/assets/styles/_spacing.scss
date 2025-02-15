@@ -6,6 +6,7 @@ $spacing-xlg: 20px;
 $spacing-xxlg: 24px;
 $spacing-huge: 32px;
 $spacing-giant: 40px;
+$spacing-giant2x: 7em;
 
 @mixin spacing($size) {
   margin: map-get($spacing-map, $size);
@@ -20,5 +21,6 @@ $spacing-map: (
   "xlg": $spacing-xlg,
   "xxlg": $spacing-xxlg,
   "huge": $spacing-huge,
-  "giant": $spacing-giant
+  "giant": $spacing-giant,
+  "giant2x": $spacing-giant2x,
 );
