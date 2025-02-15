@@ -1,0 +1,7 @@
+<div class="card-header">
+  <ng-container *ngIf="!isCustomHeader">
+    <h3>{{ title }}</h3>
+  </ng-container>
+
+  <ng-content *ngIf="isCustomHeader"></ng-content>
+</div>

@@ -1,0 +1,9 @@
+@import "../../../../../../assets/styles/spacing";
+@import "../../../../../../assets/styles/fontSize";
+@import "../../../../../theme/theme";
+
+.card-header {
+  color: $text-color;
+  padding: $spacing-sm;
+  @include font-size("md");
+}

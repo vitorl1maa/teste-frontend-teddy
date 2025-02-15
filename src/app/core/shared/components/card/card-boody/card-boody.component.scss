@@ -1,0 +1,16 @@
+@import "../../../../../../assets/styles/fontSize";
+@import "../../../../../../assets/styles/spacing";
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: map-get($spacing-map, "sm");
+  margin-top: $spacing-md;
+
+  p {
+    margin: 6px 0;
+    @include font-size("md");
+    font-weight: normal;
+    color: #333;
+  }
+}

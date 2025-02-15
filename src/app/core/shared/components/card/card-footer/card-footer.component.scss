@@ -1,0 +1,9 @@
+@import "../../../../../../assets/styles/spacing";
+
+.card-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: $spacing-xlg;
+}
