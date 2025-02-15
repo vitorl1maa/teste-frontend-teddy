@@ -56,8 +56,9 @@
     list-style: none;
     display: flex;
     justify-content: center;
-    align-self: center;
+
     gap: map-get($spacing-map, "lg");
+    margin-right: $spacing-giant2x;
 
     li {
       a {

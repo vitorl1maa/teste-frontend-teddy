@@ -4,10 +4,11 @@ import { RegistrationPageComponent } from "./pages/registration-page/registratio
 import { ClientsPageComponent } from "./pages/clients-page/clients-page.component";
 import { NavbarComponent } from "./core/shared/components/navbar/navbar.component";
 import { IconComponent } from "./core/shared/components/icon/icon.component";
+import { LayoutComponent } from "./core/shared/layout/layout/layout.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RegistrationPageComponent, ClientsPageComponent, NavbarComponent, IconComponent],
+  imports: [RouterOutlet, RegistrationPageComponent, ClientsPageComponent, NavbarComponent, IconComponent, LayoutComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

@@ -59,10 +59,10 @@ export class IconComponent implements OnChanges {
   get iconSize(): string {
     switch (this.size) {
       case "sm":
-        return "16";
+        return "22";
 
       case "md":
-        return "32";
+        return "30";
 
       case "lg":
         return "40";
