@@ -1,7 +1,16 @@
 <main class="main-container">
-  <app-navbar [menuItems]="[
-    { label: 'Clientes', link: '' },
-    { label: 'Clientes selecionados', link: '' },
-    { label: 'Sair', link: '' }
-  ]"></app-navbar>
+  <app-navbar [menuItems]="menuItems" [sideItems]="sideItems"></app-navbar>
+
+  <app-modal-root>
+    <app-modal-header [title]="'Título do Modal'"></app-modal-header>
+    <app-modal-body>
+      <app-input type="text" placeholder="Digite o nome:" size="md"></app-input>
+      <app-input type="currency" placeholder="Digite o salário:" size="md"></app-input>
+      <app-input type="currency" placeholder="Digite o valor da empresa:" size="md"></app-input>
+    </app-modal-body>
+
+    <app-modal-footer>
+      <app-button label="Criar" type="default" size="md"></app-button>
+    </app-modal-footer>
+  </app-modal-root>
 </main>
