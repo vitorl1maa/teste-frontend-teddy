@@ -8,7 +8,6 @@
   justify-content: space-between;
   gap: $spacing-giant;
   margin-bottom: $spacing-xxlg;
-
   @media (max-width: 1000px) {
     width: 100%;
     flex-direction: column;
