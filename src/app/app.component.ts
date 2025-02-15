@@ -8,7 +8,7 @@ import { LayoutComponent } from "./core/shared/layout/layout/layout.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RegistrationPageComponent, ClientsPageComponent, NavbarComponent, IconComponent, LayoutComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

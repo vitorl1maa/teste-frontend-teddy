@@ -17,8 +17,8 @@ export class ModalCreatComponent {
   @Output() onClose = new EventEmitter<void>();
 
   isModalOpen = true;
-  modalTitle = 'Criar cliente';
-  modalButtonText = 'Criar';
+  modalTitle = 'Criar cliente:';
+  modalButtonText = 'Criar cliente';
 
   closeModal() {
     this.isModalOpen = false;

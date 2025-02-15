@@ -4,12 +4,12 @@
     <ng-content>
       <section class="client-content-list">
         <div class="client-header-list">
-          <p><span>16</span> clientes encontrados: </p>
+          <p><span> {{clients.length}} </span> clientes encontrado(os): </p>
 
           <div class="client-header-select">
             <span>Clientes por página: </span>
             <select>
-              <option>12</option>
+              <option>{{clients.length}}</option>
             </select>
           </div>
         </div>

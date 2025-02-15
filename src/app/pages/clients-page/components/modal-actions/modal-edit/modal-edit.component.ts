@@ -17,7 +17,6 @@ export class ModalEditComponent {
   @Output() onClose = new EventEmitter<void>();
   @Input() clientData: { name: string; salary: number; companyValue: number } | null = null;
 
-
   isModalOpen = true;
   modalTitle = 'Editar cliente:';
   modalButtonText = 'Editar cliente';
