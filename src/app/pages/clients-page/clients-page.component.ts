@@ -5,13 +5,14 @@ import { InputComponent } from "../../core/shared/components/input/input.compone
 import { ModalBodyComponent } from "../../core/shared/components/modal/modal-body/modal-body.component";
 import { ModalFooterComponent } from "../../core/shared/components/modal/modal-footer/modal-footer.component";
 import { ButtonComponent } from "../../core/shared/components/button/button.component";
-import { ClientListComponent } from "./components/clients-list/client-list/client-list.component";
+
 import { LayoutComponent } from "../../core/shared/layout/layout/layout.component";
 import { CommonModule } from '@angular/common';
+import { ClientsListComponent } from "./components/clients-list/client-list.component";
 
 @Component({
   selector: 'app-clients-page',
-  imports: [CommonModule, ModalRootComponent, ModalHeaderComponent, InputComponent, ModalBodyComponent, ModalFooterComponent, ButtonComponent, ClientListComponent, LayoutComponent],
+  imports: [CommonModule, ModalRootComponent, ModalHeaderComponent, InputComponent, ModalBodyComponent, ModalFooterComponent, ButtonComponent, LayoutComponent, ClientsListComponent],
   templateUrl: './clients-page.component.html',
   styleUrl: './clients-page.component.scss'
 })
