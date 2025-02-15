@@ -6,10 +6,12 @@ import { InputComponent } from "../../core/shared/components/input/input.compone
 import { ModalBodyComponent } from "../../core/shared/components/modal/modal-body/modal-body.component";
 import { ModalFooterComponent } from "../../core/shared/components/modal/modal-footer/modal-footer.component";
 import { ButtonComponent } from "../../core/shared/components/button/button.component";
+import { ClientListComponent } from "./components/clients-list/client-list/client-list.component";
+import { LayoutComponent } from "../../core/shared/layout/layout/layout.component";
 
 @Component({
   selector: 'app-clients-page',
-  imports: [NavbarComponent, ModalRootComponent, ModalHeaderComponent, InputComponent, ModalBodyComponent, ModalFooterComponent, ButtonComponent],
+  imports: [NavbarComponent, ModalRootComponent, ModalHeaderComponent, InputComponent, ModalBodyComponent, ModalFooterComponent, ButtonComponent, ClientListComponent, LayoutComponent],
   templateUrl: './clients-page.component.html',
   styleUrl: './clients-page.component.scss'
 })

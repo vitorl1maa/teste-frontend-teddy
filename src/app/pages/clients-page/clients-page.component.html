@@ -1,16 +1,34 @@
-<main class="main-container">
-  <app-navbar [menuItems]="menuItems" [sideItems]="sideItems"></app-navbar>
+<app-layout [menuItems]="menuItems" [sideItems]="sideItems">
+  <main class="main-container">
 
-  <app-modal-root>
-    <app-modal-header [title]="'Título do Modal'"></app-modal-header>
-    <app-modal-body>
-      <app-input type="text" placeholder="Digite o nome:" size="md"></app-input>
-      <app-input type="currency" placeholder="Digite o salário:" size="md"></app-input>
-      <app-input type="currency" placeholder="Digite o valor da empresa:" size="md"></app-input>
-    </app-modal-body>
+    <ng-content>
+      <section class="client-content-list">
+        <div class="client-header-list">
+          <p><span>16</span> clientes encontrados: </p>
 
-    <app-modal-footer>
-      <app-button label="Criar" type="default" size="md"></app-button>
-    </app-modal-footer>
-  </app-modal-root>
-</main>
+          <div class="client-header-select">
+            <span>Clientes por página: </span>
+            <select>
+              <option value="volvo">12</option>
+            </select>
+          </div>
+        </div>
+      </section>
+      <app-client-list></app-client-list>
+    </ng-content>
+
+    <app-modal-root>
+      <app-modal-header [title]="'Título do Modal'"></app-modal-header>
+      <app-modal-body>
+        <app-input type="text" placeholder="Digite o nome:" size="md"></app-input>
+        <app-input type="currency" placeholder="Digite o salário:" size="md"></app-input>
+        <app-input type="currency" placeholder="Digite o valor da empresa:" size="md"></app-input>
+      </app-modal-body>
+
+      <app-modal-footer>
+        <app-button label="Criar" type="default" size="md"></app-button>
+      </app-modal-footer>
+    </app-modal-root>
+
+  </main>
+</app-layout>

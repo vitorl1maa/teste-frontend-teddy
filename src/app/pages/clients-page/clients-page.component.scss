@@ -1,7 +1,43 @@
-@import '../../theme/theme';
+@import "../../theme/theme";
+@import "../../../assets/styles/spacing";
+@import "../../../assets/styles/fontSize";
+@import "../../../assets/styles/variables";
 
 .main-container {
   width: 100%;
   height: 100vh;
-  background-color: $background-color;
+  padding-top: $spacing-giant2x;
+  padding-left: $spacing-giant2x;
+  padding-right: $spacing-giant2x;
+
+  .client-content-list {
+    .client-header-list {
+      display: flex;
+      justify-content: space-between;
+
+      > p {
+        @include font-size("md");
+
+        > span {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .client-header-select {
+      > span {
+        @include font-size("md");
+        padding: $spacing-xsm;
+      }
+
+      > select {
+        background: transparent;
+        border-radius: $border-radius;
+        border: 1px solid $off-color;
+        padding: $spacing-xsm;
+        cursor: pointer;
+        outline: none;
+      }
+    }
+  }
 }
