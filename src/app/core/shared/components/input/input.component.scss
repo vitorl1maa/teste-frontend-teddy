@@ -1,6 +1,7 @@
-@import '../../../../../assets/styles/spacing';
-@import '../../../../../assets/styles/variables';
-@import '../../../../theme/theme';
+@import "../../../../../assets/styles/spacing";
+@import "../../../../../assets/styles/variables";
+@import "../../../../theme/theme";
+@import "../../../../../assets/styles/fontSize";
 
 input {
   width: 100%;
@@ -11,7 +12,7 @@ input {
   letter-spacing: 1px;
   outline: none;
   caret-color: $primary-color;
-  
+
   &::placeholder {
     color: $placeholder-color;
   }
@@ -26,18 +27,28 @@ input {
     }
   }
 
+  &.currency {
+    border: 3px solid $off-color;
+    background-color: transparent;
+    color: $text-color;
+
+    &:focus {
+      border-color: $primary-color;
+    }
+  }
+
   &.sm {
     padding: $spacing-sm $spacing-sm;
-    font-size: 14px;
+    @include font-size("sm");
   }
-  
+
   &.md {
     padding: $spacing-md $spacing-md;
-    font-size: 16px;
+    @include font-size("md");
   }
-  
+
   &.lg {
     padding: $spacing-lg $spacing-lg;
-    font-size: 24px;
+    @include font-size("lg");
   }
 }
