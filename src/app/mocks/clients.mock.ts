@@ -11,7 +11,11 @@ export const CLIENTS_MOCK = {
     { id: 9, name: "Isabella Thomas", salary: 7500, companyValuation: 950000, createdAt: "2025-02-15T02:18:00.000Z", updatedAt: "2025-02-15T02:18:00.000Z" },
     { id: 10, name: "Jack Martin", salary: 6800, companyValuation: 850000, createdAt: "2025-02-15T02:19:00.000Z", updatedAt: "2025-02-15T02:19:00.000Z" },
     { id: 11, name: "Kate Lewis", salary: 5600, companyValuation: 630000, createdAt: "2025-02-15T02:20:00.000Z", updatedAt: "2025-02-15T02:20:00.000Z" },
-    { id: 12, name: "Liam Walker", salary: 5100, companyValuation: 580000, createdAt: "2025-02-15T02:21:00.000Z", updatedAt: "2025-02-15T02:21:00.000Z" }
+    { id: 12, name: "Liam Walker", salary: 5100, companyValuation: 580000, createdAt: "2025-02-15T02:21:00.000Z", updatedAt: "2025-02-15T02:21:00.000Z" },
+    { id: 13, name: "Mia Scott", salary: 5400, companyValuation: 620000, createdAt: "2025-02-15T02:22:00.000Z", updatedAt: "2025-02-15T02:22:00.000Z" },
+    { id: 14, name: "Noah King", salary: 4700, companyValuation: 510000, createdAt: "2025-02-15T02:23:00.000Z", updatedAt: "2025-02-15T02:23:00.000Z" },
+    { id: 15, name: "Olivia Green", salary: 5900, companyValuation: 670000, createdAt: "2025-02-15T02:24:00.000Z", updatedAt: "2025-02-15T02:24:00.000Z" },
+    { id: 16, name: "Paul Young", salary: 5200, companyValuation: 560000, createdAt: "2025-02-15T02:25:00.000Z", updatedAt: "2025-02-15T02:25:00.000Z" }
   ],
   totalPages: 1,
   currentPage: 1
