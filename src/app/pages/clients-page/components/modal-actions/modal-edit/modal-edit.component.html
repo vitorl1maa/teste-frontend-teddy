@@ -1,0 +1,14 @@
+<app-modal-root *ngIf="isModalOpen">
+  <app-modal-header [title]="modalTitle" (onClose)="closeModal()"></app-modal-header>
+
+  <app-modal-body>
+    <app-input type="text" [value]="clientData?.name" placeholder="Digite o nome:" size="md"></app-input>
+    <app-input type="currency" [value]="clientData?.salary" placeholder="Digite o salário:" size="md"></app-input>
+    <app-input type="currency" [value]="clientData?.companyValue" placeholder="Digite o valor da empresa:"
+      size="md"></app-input>
+  </app-modal-body>
+
+  <app-modal-footer>
+    <app-button [label]="modalButtonText" type="default" size="md" (click)="saveChanges()"></app-button>
+  </app-modal-footer>
+</app-modal-root>
