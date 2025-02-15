@@ -1,0 +1,35 @@
+@import "../../../../../assets/styles/fontSize";
+@import "../../../../../assets/styles/spacing";
+@import "../../../../../assets/styles/variables";
+@import "../../../../theme/theme";
+
+.client-card {
+  background: $white;
+  border-radius: $border-radius;
+  padding: 16px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  width: 420px;
+  text-align: center;
+
+  .card-header {
+    color: $text-color;
+    padding: $spacing-sm;
+    @include font-size("md");
+  }
+
+  .card-body {
+    padding: $spacing-md;
+    p {
+      margin: 6px 0;
+      @include font-size("md");
+      font-weight: normal;
+      color: #333;
+    }
+  }
+
+  .card-icons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: $spacing-md;
+  }
+}
