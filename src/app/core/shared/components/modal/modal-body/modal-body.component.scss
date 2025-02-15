@@ -1,0 +1,8 @@
+@import "../../../../../../assets/styles/spacing";
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: map-get($spacing-map, "md");
+  padding: map-get($spacing-map, "sm") 0;
+}

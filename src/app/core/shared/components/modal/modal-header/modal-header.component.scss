@@ -1,0 +1,24 @@
+@import "../../../../../../assets/styles/spacing";
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: map-get($spacing-map, "sm");
+
+  h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .close-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .close-button:hover {
+    opacity: 0.7;
+  }
+}

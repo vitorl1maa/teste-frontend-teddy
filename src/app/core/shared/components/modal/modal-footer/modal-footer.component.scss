@@ -1,0 +1,10 @@
+.modal-footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  > div {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
