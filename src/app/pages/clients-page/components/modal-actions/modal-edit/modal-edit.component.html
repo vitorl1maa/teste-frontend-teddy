@@ -3,9 +3,10 @@
 
   <app-modal-body>
     <app-input type="text" [value]="clientData?.name" placeholder="Digite o nome:" size="md"></app-input>
-    <app-input type="currency" [value]="clientData?.salary" placeholder="Digite o salário:" size="md"></app-input>
-    <app-input type="currency" [value]="clientData?.companyValue" placeholder="Digite o valor da empresa:"
-      size="md"></app-input>
+    <app-input type="currency" mask="separator.2" prefix="R$ " thousandSeparator="." decimalMarker=","
+      [value]="clientData?.salary" placeholder="Digite o salário:" size="md"></app-input>
+    <app-input type="currency" mask="separator.2" prefix="R$ " thousandSeparator="." decimalMarker=","
+      [value]="clientData?.companyValue" placeholder="Digite o valor da empresa:" size="md"></app-input>
   </app-modal-body>
 
   <app-modal-footer>

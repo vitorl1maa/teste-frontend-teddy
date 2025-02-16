@@ -5,6 +5,7 @@ import { ModalBodyComponent } from "../../../../../core/shared/components/modal/
 import { ModalFooterComponent } from "../../../../../core/shared/components/modal/modal-footer/modal-footer.component";
 import { ButtonComponent } from "../../../../../core/shared/components/button/button.component";
 import { InputComponent } from "../../../../../core/shared/components/input/input.component";
+import { NgxMaskDirective } from 'ngx-mask';
 import { CommonModule } from '@angular/common';
 
 @Component({

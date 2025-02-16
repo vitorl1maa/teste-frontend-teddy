@@ -2,8 +2,10 @@
   <app-modal-header [title]="modalTitle" (onClose)="closeModal()"></app-modal-header>
   <app-modal-body>
     <app-input type="text" placeholder="Digite o nome:" size="md"></app-input>
-    <app-input type="currency" placeholder="Digite o salário:" size="md"></app-input>
-    <app-input type="currency" placeholder="Digite o valor da empresa:" size="md"></app-input>
+    <app-input type="currency" mask="separator.2" prefix="R$ " thousandSeparator="." decimalMarker=","
+      placeholder="Digite o salário:" size="md"></app-input>
+    <app-input type="currency" mask="separator.2" prefix="R$ " thousandSeparator="." decimalMarker=","
+      placeholder="Digite o valor da empresa:" size="md"></app-input>
   </app-modal-body>
 
   <app-modal-footer>
