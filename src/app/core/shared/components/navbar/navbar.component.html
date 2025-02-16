@@ -21,7 +21,7 @@
       <div>
         <ul class="menu navigation-menu-mobile">
           <li *ngFor="let item of menuItems">
-            <a [href]="item.link">{{ item.label }}</a>
+            <span>{{ item.label }}</span>
           </li>
         </ul>
       </div>
@@ -29,10 +29,10 @@
       <div>
         <ul class="content-sidebar">
           <li *ngFor="let item of sideItems">
-            <a [href]="item.link">
+            <span>
               <img [src]="'/assets/icons/' + item.icon + '.svg'" alt="{{item.label}} icon" />
               {{ item.label }}
-            </a>
+            </span>
           </li>
         </ul>
       </div>
@@ -41,7 +41,7 @@
     <div>
       <ul class="menu">
         <li *ngFor="let item of menuItems">
-          <a [href]="item.link">{{ item.label }}</a>
+          <span>{{ item.label }}</span>
         </li>
       </ul>
     </div>
