@@ -9,8 +9,8 @@ import { IconComponent } from "../icon/icon.component";
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-  @Input() menuItems: { label: string; link: string }[] = []
-  @Input() sideItems: { icon: string; label: string; link: string }[] = [];
+  @Input() menuItems: { label: string; }[] = []
+  @Input() sideItems: { icon: string; label: string; }[] = [];
 
   isMenuOpen = false;
 

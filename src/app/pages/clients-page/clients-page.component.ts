@@ -6,7 +6,7 @@ import { ClientsListComponent } from "./components/clients-list/clients-list.com
 import { ModalCreatComponent } from "./components/modal-actions/modal-creat/modal-creat.component";
 import { ModalEditComponent } from "./components/modal-actions/modal-edit/modal-edit.component";
 import { ModalDeleteComponent } from "./components/modal-actions/modal-delete/modal-delete.component";
-import { CLIENTS_MOCK } from '../../mocks/clients.mock';
+import { CLIENTS_MOCK } from '../../core/mocks/clients.mock';
 
 @Component({
   selector: 'app-clients-page',
@@ -18,15 +18,15 @@ export class ClientsPageComponent {
   clients = CLIENTS_MOCK.clients;
 
   menuItems = [
-    { label: 'Clientes', link: '' },
-    { label: 'Clientes selecionados', link: '' },
-    { label: 'Sair', link: '' }
+    { label: 'Clientes' },
+    { label: 'Clientes selecionados' },
+    { label: 'Sair' }
   ];
 
   sideItems = [
-    { icon: 'home-icon', label: 'Home', link: '' },
-    { icon: 'client-icon', label: 'Clientes', link: '' },
-    { icon: 'products-icon', label: 'Produtos', link: '' }
+    { icon: 'home-icon', label: 'Home' },
+    { icon: 'client-icon', label: 'Clientes' },
+    { icon: 'products-icon', label: 'Produtos' }
   ];
 
   showModalCreate = false;
