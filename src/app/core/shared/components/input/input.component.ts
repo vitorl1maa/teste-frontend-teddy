@@ -1,15 +1,20 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, forwardRef, Input } from '@angular/core';
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 @Component({
   selector: 'app-input',
-  imports: [CommonModule, NgxMaskDirective],
-  providers: [provideNgxMask()],
+  imports: [CommonModule, NgxMaskDirective, FormsModule],
+  providers: [provideNgxMask(), {
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => InputComponent),
+    multi: true,
+  },],
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss'
 })
-export class InputComponent {
+export class InputComponent implements ControlValueAccessor {
   @Input() placeholder: string = "Digite aqui...";
   @Input() type: 'text' | 'currency' = 'text';
   @Input() size: 'sm' | 'md' | 'lg' = 'md';
@@ -19,6 +24,21 @@ export class InputComponent {
   @Input() prefix: string = '';
   @Input() thousandSeparator: string = '.';
   @Input() decimalMarker: "." | "," | [".", ","] = ',';
+
+  onChange: any = () => { };
+  onTouched: any = () => { };
+
+  writeValue(value: string): void {
+    this.value = value;
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
 
   getMask(): any {
     if (this.type === 'currency') {
