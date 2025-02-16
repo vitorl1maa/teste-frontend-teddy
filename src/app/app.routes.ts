@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: '', loadChildren: () =>
+    path: 'register', loadChildren: () =>
       import('./pages/registration-page/registration-page.module')
         .then(m => m.RegistrationPageModule)
   },
@@ -11,5 +11,6 @@ export const routes: Routes = [
       import('./pages/clients-page/clients-page.module')
         .then(m => m.ClientsPageModule)
   },
-  { path: '**', redirectTo: '' }
+  { path: '', redirectTo: '/register', pathMatch: 'full' },
+  // { path: '**', redirectTo: '/register' }
 ];
