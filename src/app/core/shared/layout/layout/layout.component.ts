@@ -8,6 +8,8 @@ import { NavbarComponent } from "../../components/navbar/navbar.component";
   imports: [NavbarComponent]
 })
 export class LayoutComponent {
-  @Input() menuItems: { label: string; link: string }[] = [];
-  @Input() sideItems: { icon: string; label: string; link: string }[] = [];
+  @Input() menuItems: { label: string; }[] = [];
+  @Input() sideItems: { icon: string; label: string; }[] = [];
+
+
 }

@@ -56,5 +56,6 @@ export class ClientsPageComponent {
     this.showModalDelete = false;
   }
 
+
 }
 

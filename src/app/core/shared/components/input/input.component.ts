@@ -40,6 +40,13 @@ export class InputComponent implements ControlValueAccessor {
     this.onTouched = fn;
   }
 
+  onInputChange(event: Event): void {
+    const value = (event.target as HTMLInputElement).value;
+    this.value = value;
+    this.onChange(value);
+    this.onTouched();
+  }
+
   getMask(): any {
     if (this.type === 'currency') {
       return 'separator.2';
