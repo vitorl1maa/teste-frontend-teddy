@@ -1,15 +1,74 @@
 @import "../../../../../assets/styles/spacing";
 @import "../../../../theme/theme";
+@import "../../../../../assets//styles/fontSize";
+@import "../../../../../assets/styles/variables";
 
 .client-list-component {
   margin-top: $spacing-md;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: $spacing-giant;
   margin-bottom: $spacing-xxlg;
+
   @media (max-width: 1000px) {
     width: 100%;
     flex-direction: column;
+  }
+
+  .client-content-list {
+    .client-header-list {
+      display: flex;
+      justify-content: space-between;
+
+      > p {
+        @include font-size("md");
+
+        > span {
+          font-weight: bold;
+        }
+      }
+
+      @media (max-width: 700px) {
+        > p {
+          text-align: left;
+        }
+      }
+    }
+
+    .client-header-select {
+      display: flex;
+      > span {
+        @include font-size("md");
+        padding: $spacing-xsm;
+      }
+
+      > select {
+        background: transparent;
+        border-radius: $border-radius;
+        border: 1px solid $off-color;
+        padding: $spacing-xsm;
+        cursor: pointer;
+        outline: none;
+      }
+
+      @media (max-width: 700px) {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: end;
+        > select {
+          align-self: flex-end;
+        }
+      }
+    }
+  }
+
+  .card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: $spacing-giant;
   }
 }

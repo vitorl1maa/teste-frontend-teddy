@@ -2,30 +2,15 @@
   <main class="main-container">
 
     <ng-content>
-      <section class="client-content-list">
-        <div class="client-header-list">
-          <p><span> {{clients.length}} </span> clientes encontrado(os): </p>
-
-          <div class="client-header-select">
-            <span>Clientes por página: </span>
-            <select>
-              <option>{{clients.length}}</option>
-            </select>
-          </div>
-        </div>
-      </section>
-
       <div *ngIf="selectedView === ClientsNavigation.CLIENTS">
         <app-clients-list [clients]="clients" (editClient)="openEditModal($event)"
-          (deleteClient)="openDeleteModal($event)">
+          (deleteClient)="openDeleteModal($event)" (createClient)="openCreateModal()">
         </app-clients-list>
       </div>
 
       <div *ngIf="selectedView === ClientsNavigation.CLIENTSSELECTED">
         <app-clients-selected></app-clients-selected>
       </div>
-
-      <app-button label="Criar cliente" [type]="'outline'" (click)="openCreateModal()"></app-button>
     </ng-content>
 
     <app-modal-creat *ngIf="showModalCreate" (onClose)="closeModal()"></app-modal-creat>

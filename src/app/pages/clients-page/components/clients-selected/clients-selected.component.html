@@ -1,1 +1,22 @@
-<p>clients-selected works!</p>
+<section class="client-selected-component">
+  <div class="client-content-list">
+    <div class="client-header-list">
+      <p>Clientes selecionados:</p>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <app-card-root>
+      <app-card-header></app-card-header>
+      <app-card-boody>
+        <p>Salário: R$</p>
+        <p>Empresa: R$</p>
+      </app-card-boody>
+      <app-card-footer>
+        <span></span>
+        <app-icon [icon]="'minus'" [size]="'sm'" [color]="'secondary'"></app-icon>
+      </app-card-footer>
+    </app-card-root>
+  </div>
+  <!-- <app-button label="Criar cliente" [type]="'outline'" (click)="onCreateClient()"></app-button> -->
+</section>

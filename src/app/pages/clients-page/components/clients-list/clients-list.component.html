@@ -1,15 +1,32 @@
 <section class="client-list-component">
-  <app-card-root *ngFor="let client of clients">
-    <app-card-header [title]="client.name"></app-card-header>
-    <app-card-boody>
-      <p>Salário: R${{ client.salary | number:'1.2-2' }}</p>
-      <p>Empresa: R${{ client.companyValuation | number:'1.2-2' }}</p>
-    </app-card-boody>
-    <app-card-footer>
-      <app-icon [icon]="isSelected[client.id] ? 'check' : 'plus'" [size]="'md'" (click)="toggleIcon(client.id)">
-      </app-icon>
-      <app-icon [icon]="'pencil'" [size]="'sm'" (click)="onEditClient(client.id)"></app-icon>
-      <app-icon [icon]="'trash2'" [size]="'sm'" [color]="'dangerous'" (click)="onDeleteClient(client.id)"></app-icon>
-    </app-card-footer>
-  </app-card-root>
+  <div class="client-content-list">
+    <div class="client-header-list">
+      <p><span> {{clients.length}} </span> clientes encontrado(os): </p>
+
+      <div class="client-header-select">
+        <span>Clientes por página: </span>
+        <select>
+          <option>{{clients.length}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <app-card-root *ngFor="let client of clients">
+      <app-card-header [title]="client.name"></app-card-header>
+      <app-card-boody>
+        <p>Salário: R${{ client.salary | number:'1.2-2' }}</p>
+        <p>Empresa: R${{ client.companyValuation | number:'1.2-2' }}</p>
+      </app-card-boody>
+      <app-card-footer>
+        <app-icon [icon]="isSelected[client.id] ? 'check' : 'plus'" [size]="'md'" (click)="toggleIcon(client.id)">
+        </app-icon>
+        <app-icon [icon]="'pencil'" [size]="'sm'" (click)="onEditClient(client.id)"></app-icon>
+        <app-icon [icon]="'trash2'" [size]="'sm'" [color]="'dangerous'" (click)="onDeleteClient(client.id)"></app-icon>
+      </app-card-footer>
+    </app-card-root>
+  </div>
+
+  <app-button label="Criar cliente" [type]="'outline'" (click)="onCreateClient()"></app-button>
 </section>
