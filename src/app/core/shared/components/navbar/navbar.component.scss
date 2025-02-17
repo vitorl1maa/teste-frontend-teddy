@@ -67,6 +67,7 @@
         @include font-size("md");
         font-weight: 300;
         transition: color 0.3s ease;
+        cursor: pointer;
 
         &:hover {
           color: $primary-color;
@@ -126,6 +127,7 @@
           display: flex;
           align-items: center;
           gap: map-get($spacing-map, "lg");
+          cursor: pointer;
 
           &:hover {
             color: $primary-color;
