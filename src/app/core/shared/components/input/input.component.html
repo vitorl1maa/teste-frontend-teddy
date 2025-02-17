@@ -1,3 +1,3 @@
 <input [ngClass]="[type, size]" [placeholder]="placeholder" [disabled]="disabled" [mask]="getMask()" [prefix]="prefix"
   [thousandSeparator]="thousandSeparator" [decimalMarker]="decimalMarker" [(ngModel)]="value"
-  (input)="onInputChange($event)" />
+  (ngModelChange)="onInputChange($event)" />
