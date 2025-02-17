@@ -3,9 +3,9 @@ $font-size-sm: 14px;
 $font-size-md: 18px;
 $font-size-lg: 25px;
 $font-size-xlg: 32px;
-$font-size-xxlg: 44px;
-$font-size-huge: 32px;
-$font-size-giant: 40px;
+$font-size-xxlg: 35px;
+$font-size-huge: 45px;
+$font-size-giant: 50px;
 
 @mixin font-size($size) {
   font-size: map-get($font-size-map, $size);

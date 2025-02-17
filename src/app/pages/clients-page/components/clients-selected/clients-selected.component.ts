@@ -7,10 +7,11 @@ import { IconComponent } from "../../../../core/shared/components/icon/icon.comp
 import { ClientType } from '../clients-list/types/client';
 import { ClientSelectionService } from '../../../../core/services/client-selection/client-selection.service';
 import { CommonModule } from '@angular/common';
+import { ButtonComponent } from "../../../../core/shared/components/button/button.component";
 
 @Component({
   selector: 'app-clients-selected',
-  imports: [CommonModule, CardRootComponent, CardHeaderComponent, CardBoodyComponent, CardFooterComponent, IconComponent],
+  imports: [CommonModule, CardRootComponent, CardHeaderComponent, CardBoodyComponent, CardFooterComponent, IconComponent, ButtonComponent],
   templateUrl: './clients-selected.component.html',
   styleUrl: './clients-selected.component.scss'
 })
@@ -27,5 +28,9 @@ export class ClientsSelectedComponent implements OnInit {
 
   removeClient(clientId: number): void {
     this.clientSelectionService.removeClient(clientId);
+  }
+
+  clearSelectedClients(): void {
+    this.clientSelectionService.clearSelectedClients();
   }
 }
