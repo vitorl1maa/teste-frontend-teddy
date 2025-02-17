@@ -6,17 +6,18 @@
   </div>
 
   <div class="card-grid">
-    <app-card-root>
-      <app-card-header></app-card-header>
+    <app-card-root *ngFor="let client of selectedClients">
+      <app-card-header [title]="client.name"></app-card-header>
       <app-card-boody>
-        <p>Salário: R$</p>
-        <p>Empresa: R$</p>
+        <p>Salário: R${{ client.salary}}</p>
+        <p>Empresa: R${{ client.companyValuation}}</p>
       </app-card-boody>
       <app-card-footer>
         <span></span>
-        <app-icon [icon]="'minus'" [size]="'sm'" [color]="'secondary'"></app-icon>
+        <app-icon [icon]="'minus'" [size]="'sm'" [color]="'secondary'" (click)="removeClient(client.id)"></app-icon>
       </app-card-footer>
     </app-card-root>
   </div>
+
   <!-- <app-button label="Criar cliente" [type]="'outline'" (click)="onCreateClient()"></app-button> -->
 </section>

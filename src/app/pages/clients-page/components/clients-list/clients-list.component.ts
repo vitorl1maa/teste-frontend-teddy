@@ -6,6 +6,11 @@ import { CardFooterComponent } from '../../../../core/shared/components/card/car
 import { IconComponent } from '../../../../core/shared/components/icon/icon.component';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from "../../../../core/shared/components/button/button.component";
+import { ClientSelectionService } from '../../../../core/services/client-selection/client-selection.service';
+import { ClientType } from './types/client';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-clients-list',
@@ -17,13 +22,21 @@ export class ClientsListComponent {
   @Output() createClient = new EventEmitter<any>();
   @Output() editClient = new EventEmitter<void>();
   @Output() deleteClient = new EventEmitter<any>();
-  @Input() clients: any[] = [];
+  @Input() clients: ClientType[] = [];
 
-  isSelected: { [key: number]: boolean } = {};
 
-  toggleIcon(client: any) {
-    this.isSelected[client] = !this.isSelected[client];
+  constructor(private clientSelectionService: ClientSelectionService) { }
+
+  toggleIcon(client: ClientType) {
+    this.clientSelectionService.toggleClientSelection(client);
   }
+
+  isSelected(clientId: number): Observable<boolean> {
+    return this.clientSelectionService.selectedClients$.pipe(
+      map(selectedClients => selectedClients.some(client => client.id === clientId))
+    );
+  }
+
 
   onCreateClient() {
     this.createClient.emit()
