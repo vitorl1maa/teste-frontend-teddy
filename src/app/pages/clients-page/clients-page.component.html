@@ -1,4 +1,4 @@
-<app-layout>
+<app-layout [menuItems]="menuItems" [sideItems]="sideItems" (viewChanged)="changeView($event)">
   <main class="main-container">
 
     <ng-content>
@@ -15,9 +15,15 @@
         </div>
       </section>
 
-      <app-clients-list [clients]="clients" (editClient)="openEditModal($event)"
-        (deleteClient)="openDeleteModal($event)">
-      </app-clients-list>
+      <div *ngIf="selectedView === ClientsNavigation.CLIENTS">
+        <app-clients-list [clients]="clients" (editClient)="openEditModal($event)"
+          (deleteClient)="openDeleteModal($event)">
+        </app-clients-list>
+      </div>
+
+      <div *ngIf="selectedView === ClientsNavigation.CLIENTSSELECTED">
+        <app-clients-selected></app-clients-selected>
+      </div>
 
       <app-button label="Criar cliente" [type]="'outline'" (click)="openCreateModal()"></app-button>
     </ng-content>

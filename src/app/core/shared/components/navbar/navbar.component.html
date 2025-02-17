@@ -41,7 +41,7 @@
     <div>
       <ul class="menu">
         <li *ngFor="let item of menuItems">
-          <a>{{ item.label }}</a>
+          <a (click)="selectView(item.view)" [ngClass]="{'active': selectedView === item.view}">{{ item.label }}</a>
         </li>
       </ul>
     </div>

@@ -8,6 +8,7 @@ import { ModalCreatComponent } from "./components/modal-actions/modal-creat/moda
 import { ButtonComponent } from "../../core/shared/components/button/button.component";
 import { ModalEditComponent } from "./components/modal-actions/modal-edit/modal-edit.component";
 import { ModalDeleteComponent } from "./components/modal-actions/modal-delete/modal-delete.component";
+import { ClientsSelectedComponent } from "./components/clients-selected/clients-selected/clients-selected.component";
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ModalDeleteComponent } from "./components/modal-actions/modal-delete/mo
     ModalCreatComponent,
     ButtonComponent,
     ModalEditComponent,
-    ModalDeleteComponent
+    ModalDeleteComponent,
+    ClientsSelectedComponent
   ]
 })
 export class ClientsPageModule { }

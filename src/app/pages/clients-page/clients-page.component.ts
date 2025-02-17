@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
-import { ButtonComponent } from "../../core/shared/components/button/button.component";
-import { LayoutComponent } from "../../core/shared/layout/layout/layout.component";
-import { CommonModule } from '@angular/common';
-import { ClientsListComponent } from "./components/clients-list/clients-list.component";
-import { ModalCreatComponent } from "./components/modal-actions/modal-creat/modal-creat.component";
-import { ModalEditComponent } from "./components/modal-actions/modal-edit/modal-edit.component";
-import { ModalDeleteComponent } from "./components/modal-actions/modal-delete/modal-delete.component";
 import { CLIENTS_MOCK } from '../../core/mocks/clients.mock';
+import { ClientsNavigation } from '../../core/enum/navigation.enum';
 
 @Component({
   selector: 'app-clients-page',
@@ -16,13 +10,40 @@ import { CLIENTS_MOCK } from '../../core/mocks/clients.mock';
 })
 export class ClientsPageComponent {
   clients = CLIENTS_MOCK.clients;
+  selectedView: ClientsNavigation = ClientsNavigation.CLIENTS;
+  ClientsNavigation = ClientsNavigation;
+
+  menuItems = [
+    { label: 'Clientes', view: ClientsNavigation.CLIENTS },
+    { label: 'Clientes Selecionados', view: ClientsNavigation.CLIENTSSELECTED },
+    { label: 'Sair', view: null }
+  ];
+
+  sideItems = [
+    { icon: 'home-icon', label: 'Home' },
+    { icon: 'client-icon', label: 'Clientes' },
+    { icon: 'products-icon', label: 'Produtos' }
+  ];
+
+
+  changeView(view: ClientsNavigation | null) {
+    if (view !== null) {
+      this.selectedView = view;
+    } else {
+      this.logout();
+    }
+  }
+
+  logout() {
+
+  }
 
   showModalCreate = false;
   showModalEdit = false;
   showModalDelete = false;
 
-
   selectedClient = { name: '', salary: 0, companyValue: 0 };
+
 
   openCreateModal() {
     this.showModalCreate = true;

@@ -81,6 +81,11 @@
     }
   }
 
+  .menu li a.active {
+    color: $primary-color;
+    text-decoration: underline;
+  }
+
   .sidebar {
     position: fixed;
     top: 0;

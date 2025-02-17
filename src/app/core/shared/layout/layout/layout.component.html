@@ -1,5 +1,5 @@
 <section class="layout">
-  <app-navbar></app-navbar>
+  <app-navbar [menuItems]="menuItems" [sideItems]="sideItems" (viewChanged)="changeView($event)"></app-navbar>
 
   <div class="layout-content">
     <ng-content></ng-content>

@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IconComponent } from "../icon/icon.component";
-import { UserService } from '../../../services/register.service';
 import { FormattedNamePipe } from '../../../pipes/formatted-name.pipe';
+import { CookieRegisterUser } from '../../../services/register-service/register.service';
+import { ClientsNavigation } from '../../../enum/navigation.enum';
 
 @Component({
   selector: 'app-navbar',
@@ -11,34 +12,28 @@ import { FormattedNamePipe } from '../../../pipes/formatted-name.pipe';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent implements OnInit {
-
-  menuItems = [
-    { label: 'Clientes' },
-    { label: 'Clientes selecionados' },
-    { label: 'Sair' }
-  ];
-
-  sideItems = [
-    { icon: 'home-icon', label: 'Home' },
-    { icon: 'client-icon', label: 'Clientes' },
-    { icon: 'products-icon', label: 'Produtos' }
-  ];
+  @Input() menuItems: { label: string; view: ClientsNavigation | null; }[] = [];
+  @Input() sideItems: { icon: string; label: string; }[] = [];
+  @Output() viewChanged = new EventEmitter<ClientsNavigation | null>();
 
   isMenuOpen = false;
   userName: string = '';
+
+  selectedView: ClientsNavigation | null = null;
+
+
+  constructor(private cookieRegisterUser: CookieRegisterUser) { }
+
+  ngOnInit() {
+    this.userName = this.cookieRegisterUser.getUserName();
+  }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
-  constructor(private userService: UserService) { }
-
-  ngOnInit() {
-    this.userName = this.userService.getUserName();
-    this.userService.userName$.subscribe((name) => {
-      this.userName = name;
-      console.log('Nome do usuário:', name);
-    });
+  selectView(view: ClientsNavigation | null) {
+    this.viewChanged.emit(view);
+    this.selectedView = view;
   }
-
 }

@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NavbarComponent } from "../../components/navbar/navbar.component";
+import { ClientsNavigation } from '../../../enum/navigation.enum';
 
 @Component({
   selector: 'app-layout',
@@ -8,6 +9,13 @@ import { NavbarComponent } from "../../components/navbar/navbar.component";
   imports: [NavbarComponent]
 })
 export class LayoutComponent {
+  @Input() menuItems: { label: string; view: ClientsNavigation | null; }[] = [];
+  @Input() sideItems: { icon: string; label: string; }[] = [];
+  @Output() viewChanged = new EventEmitter<ClientsNavigation | null>();
+
+  changeView(view: ClientsNavigation | null) {
+    this.viewChanged.emit(view);
+  }
 
 
 

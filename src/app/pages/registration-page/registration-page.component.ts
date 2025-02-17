@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { UserService } from '../../core/services/register.service';
 import { Router } from '@angular/router';
+import { CookieRegisterUser } from '../../core/services/register-service/register.service';
 
 
 
@@ -13,14 +13,17 @@ import { Router } from '@angular/router';
 export class RegistrationPageComponent {
   userName: string = '';
 
-  constructor(private userService: UserService, private router: Router) {
-    this.userService.userName$.subscribe((name) => {
-      this.userName = name;
-    });
+  constructor(private cookieRegisterUser: CookieRegisterUser, private router: Router) {
+
+    this.userName = this.cookieRegisterUser.getUserName();
   }
+
   onRegister() {
-    if (this.userName) {
-      this.userService.setUserName(this.userName);
+    if (this.userName.trim()) {
+
+      this.cookieRegisterUser.setUserName(this.userName, 7);
+
+
       this.router.navigate(['/clientes']);
     } else {
       alert('Por favor, digite um nome de usuário.');
