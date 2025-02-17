@@ -5,17 +5,14 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class UserService {
-
-  private userNameSubject = new BehaviorSubject<string>('');
+  private userNameSubject = new BehaviorSubject<string>(this.getStoredUserName());
 
   userName$ = this.userNameSubject.asObservable();
-
 
   setUserName(name: string) {
     this.userNameSubject.next(name);
     localStorage.setItem('userName', name);
   }
-
 
   getUserName() {
     return this.userNameSubject.value;
