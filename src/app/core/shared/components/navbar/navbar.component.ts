@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
   isMenuOpen = false;
   userName: string = '';
 
-  selectedView: ClientsNavigation | null = null;
+  selectedView: ClientsNavigation | null = ClientsNavigation.CLIENTS;
 
 
   constructor(private cookieRegisterUser: CookieRegisterUser) { }
