@@ -17,18 +17,6 @@ import { CLIENTS_MOCK } from '../../core/mocks/clients.mock';
 export class ClientsPageComponent {
   clients = CLIENTS_MOCK.clients;
 
-  menuItems = [
-    { label: 'Clientes' },
-    { label: 'Clientes selecionados' },
-    { label: 'Sair' }
-  ];
-
-  sideItems = [
-    { icon: 'home-icon', label: 'Home' },
-    { icon: 'client-icon', label: 'Clientes' },
-    { icon: 'products-icon', label: 'Produtos' }
-  ];
-
   showModalCreate = false;
   showModalEdit = false;
   showModalDelete = false;

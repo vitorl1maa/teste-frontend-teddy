@@ -11,8 +11,18 @@ import { FormattedNamePipe } from '../../../pipes/formatted-name.pipe';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent implements OnInit {
-  @Input() menuItems: { label: string; }[] = []
-  @Input() sideItems: { icon: string; label: string; }[] = [];
+
+  menuItems = [
+    { label: 'Clientes' },
+    { label: 'Clientes selecionados' },
+    { label: 'Sair' }
+  ];
+
+  sideItems = [
+    { icon: 'home-icon', label: 'Home' },
+    { icon: 'client-icon', label: 'Clientes' },
+    { icon: 'products-icon', label: 'Produtos' }
+  ];
 
   isMenuOpen = false;
   userName: string = '';
