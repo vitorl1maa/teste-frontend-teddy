@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { LucideAngularModule, Plus, Minus, Trash2, Pencil, X, AlignJustify, ArrowLeft, Check } from 'lucide-angular';
+import { LucideAngularModule, Plus, Minus, Trash2, Pencil, X, AlignJustify, ArrowLeft, Check, LoaderCircle } from 'lucide-angular';
 import { IconType } from './types/icon.type';
 
 @Component({
@@ -10,7 +10,7 @@ import { IconType } from './types/icon.type';
   styleUrl: './icon.component.scss'
 })
 export class IconComponent implements OnChanges {
-  @Input() icon: "minus" | "trash2" | "pencil" | "x" | "alignJustify" | "arrowLeft" | "check" | "plus" = "plus"
+  @Input() icon: "minus" | "trash2" | "pencil" | "x" | "alignJustify" | "arrowLeft" | "check" | "loaderCircle" | "plus" = "plus"
   @Input() size: 'sm' | 'md' | 'lg' = 'md';
   @Input() color: "primary" | "secondary" | "dangerous" = "primary"
 
@@ -53,6 +53,10 @@ export class IconComponent implements OnChanges {
 
       case "check":
         this.lucideIcon = Check;
+        break;
+
+      case "loaderCircle":
+        this.lucideIcon = LoaderCircle;
         break;
 
       default:

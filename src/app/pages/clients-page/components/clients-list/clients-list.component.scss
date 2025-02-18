@@ -5,10 +5,10 @@
 
 .client-list-component {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: $spacing-md;
+  margin-top: $spacing-giant2x;
   gap: $spacing-lg;
 
   @media (max-width: 1024px) {
@@ -81,5 +81,10 @@
       width: 100%;
       gap: $spacing-md;
     }
+  }
+
+  .no-clients-message {
+    text-align: center;
+    @include font-size("lg");
   }
 }

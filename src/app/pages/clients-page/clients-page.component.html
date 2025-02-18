@@ -2,12 +2,15 @@
   <main class="main-container">
 
     <ng-content>
-      <div *ngIf="selectedView === ClientsNavigation.CLIENTS">
+
+      <app-loading *ngIf="isLoading"></app-loading>
+
+      <div *ngIf="!isLoading && selectedView === ClientsNavigation.CLIENTS">
         <app-clients-list>
         </app-clients-list>
       </div>
 
-      <div *ngIf="selectedView === ClientsNavigation.CLIENTSSELECTED">
+      <div *ngIf="!isLoading && selectedView === ClientsNavigation.CLIENTSSELECTED">
         <app-clients-selected></app-clients-selected>
       </div>
     </ng-content>

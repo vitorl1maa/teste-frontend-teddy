@@ -1,22 +1,27 @@
 <section class="client-list-component">
   <div class="client-content-list">
     <div class="client-header-list">
-      <p><span> {{clientData?.clients?.length }} </span> clientes encontrado(s): </p>
+      <p><span>{{ clientData?.clients?.length || 0 }}</span> clientes encontrado(s):</p>
 
       <div class="client-header-select">
         <span>Clientes por página: </span>
         <select>
-          <option>{{clientData?.clients?.length}}</option>
+          <option>{{ clientData?.clients?.length || 0 }}</option>
         </select>
       </div>
     </div>
+  </div>
+
+  <div *ngIf="!clientData?.clients?.length" class="no-clients-message">
+    <p>Nenhum cliente encontrado.</p>
+    <p>Clique no botão abaixo para criar um novo cliente.</p>
   </div>
 
   <div class="card-grid">
     <app-card-root *ngFor="let client of clientData?.clients">
       <app-card-header [title]="client.name"></app-card-header>
       <app-card-boody>
-        <p>Salário: R${{ client.salary}}</p>
+        <p>Salário: R${{ client.salary }}</p>
         <p>Empresa: R${{ client.companyValuation }}</p>
       </app-card-boody>
       <app-card-footer>
@@ -33,5 +38,4 @@
   <!-- <app-modal-creat *ngIf="showModalCreate" (onClose)="closeModal()"></app-modal-creat>
   <app-modal-edit *ngIf="showModalEdit" [clientData]="selectedClient" (onClose)="closeModal()"></app-modal-edit>
   <app-modal-delete *ngIf="showModalDelete" [client]="selectedClient" (onClose)="closeModal()"></app-modal-delete> -->
-
 </section>
