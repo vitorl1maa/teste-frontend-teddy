@@ -30,7 +30,9 @@ export class InputComponent implements ControlValueAccessor {
 
   writeValue(value: string): void {
     this.value = value || '';
+    this.onChange(this.value);
   }
+
 
   registerOnChange(fn: any): void {
     this.onChange = fn;

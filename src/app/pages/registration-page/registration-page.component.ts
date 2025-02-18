@@ -18,18 +18,16 @@ export class RegistrationPageComponent {
     this.userName = this.cookieRegisterUser.getUserName();
   }
 
+
   onRegister() {
     if (this.userName.trim()) {
 
       this.cookieRegisterUser.setUserName(this.userName, 7);
-
 
       this.router.navigate(['/clientes']);
     } else {
       alert('Por favor, digite um nome de usuário.');
     }
   }
-
-
 
 }
