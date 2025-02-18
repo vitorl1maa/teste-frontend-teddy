@@ -11,7 +11,8 @@ import { ClientDataService } from '../../core/services/client-data-service/clien
   styleUrl: './clients-page.component.scss'
 })
 export class ClientsPageComponent implements OnInit {
-  clients = CLIENTS_MOCK.clients;
+  limitPages: number = 18;
+  // clients = CLIENTS_MOCK.clients;
   selectedView: ClientsNavigation = ClientsNavigation.CLIENTS;
   ClientsNavigation = ClientsNavigation;
   isLoading: boolean = false
@@ -19,6 +20,7 @@ export class ClientsPageComponent implements OnInit {
   showModalCreate = false;
   showModalEdit = false;
   showModalDelete = false;
+  clientData: any = null;
 
   menuItems = [
     { label: 'Clientes', view: ClientsNavigation.CLIENTS },
@@ -44,11 +46,11 @@ export class ClientsPageComponent implements OnInit {
 
   }
 
-  getClients(): void {
+  getClients(page: number = 1): any {
     this.isLoading = true;
-
-    this.clientService.getClients().subscribe({
+    this.clientService.getClients(page, this.limitPages).subscribe({
       next: (response) => {
+        this.clientData = response;
         this.clientDataService.updateClientJourneyData({
           clientData: response
         });

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Client, ClientResponse } from '../../interfaces/client.interface';
 import { ClientDataService } from '../../../../core/services/client-data-service/client-data.service';
 import { ClientService } from '../../../../core/services/client-service/client-service.service';
@@ -12,20 +12,25 @@ import { FormClient } from '../../interfaces/formClient.interface';
 })
 export class ClientsListComponent implements OnInit {
   @Output() getClientListEmit = new EventEmitter<void>();
+  @Output() pageChange: EventEmitter<number> = new EventEmitter<number>();
+  @Input() clientData: any = null;
+  @Input() limitPage: number = 18;
 
-  clientData: ClientResponse | null = null;
   clientsSelected: Client[] = []
   isCreateModalOpen: boolean = false;
   isUpdateModalOpen: boolean = false;
   isDeleteModalOpen: boolean = false;
   clientToDelete: any = ''
   clientToUpdate: any = ''
+  currentPage: number = 1;
+  totalPages: number = 10;
+
+
   formClient: FormClient = {
     name: '',
     salary: 0,
     companyValuation: 0
   }
-
 
   constructor(
     private clientService: ClientService,
@@ -97,6 +102,33 @@ export class ClientsListComponent implements OnInit {
       },
       error: (err) => console.error('Erro ao excluir cliente:', err)
     });
+  }
+
+  fetchClients() {
+    this.limitPage;
+
+    this.clientService.getClients(this.currentPage, this.limitPage).subscribe({
+      next: (res) => {
+        this.clientData = res;
+        this.totalPages = res.totalPages;
+      },
+      error: (err) => console.error("Erro ao buscar clientes:", err)
+    });
+  }
+
+  changePage(page: number) {
+    if (page !== this.currentPage) {
+      this.currentPage = page;
+      this.pageChange.emit(this.currentPage);
+      this.fetchClients()
+    }
+  }
+
+  changeLimit(event: Event) {
+    const target = event.target as HTMLSelectElement;
+    this.limitPage = Number(target.value);
+    localStorage.setItem('limitPage', this.limitPage.toString());
+    this.fetchClients();
   }
 
 }

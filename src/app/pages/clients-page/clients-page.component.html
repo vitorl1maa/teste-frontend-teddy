@@ -6,7 +6,7 @@
       <app-loading *ngIf="isLoading"></app-loading>
 
       <div *ngIf="!isLoading && selectedView === ClientsNavigation.CLIENTS">
-        <app-clients-list (getClientListEmit)="getClients()">
+        <app-clients-list (getClientListEmit)="getClients()" [clientData]="clientData">
         </app-clients-list>
       </div>
 

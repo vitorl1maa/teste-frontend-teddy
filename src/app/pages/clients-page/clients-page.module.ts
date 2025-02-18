@@ -20,6 +20,8 @@ import { ModalBodyComponent } from '../../core/shared/components/modal/modal-bod
 import { ModalFooterComponent } from '../../core/shared/components/modal/modal-footer/modal-footer.component';
 import { LoadingComponent } from "../../core/shared/components/loading/loading.component";
 import { CurrencyFormatPipe } from '../../core/pipes/formattedValue/formatted-value.pipe';
+import { PaginationComponent } from "../../core/shared/components/pagination/pagination.component";
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -42,7 +44,9 @@ import { CurrencyFormatPipe } from '../../core/pipes/formattedValue/formatted-va
     ModalBodyComponent,
     ModalFooterComponent,
     LoadingComponent,
-    CurrencyFormatPipe
+    CurrencyFormatPipe,
+    PaginationComponent,
+    NgxPaginationModule
   ]
 })
 export class ClientsPageModule { }

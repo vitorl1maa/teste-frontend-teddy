@@ -5,9 +5,12 @@
 
       <div class="client-header-select">
         <span>Clientes por página: </span>
-        <select>
-          <option>{{ clientData?.clients?.length || 0 }}</option>
+        <select (change)="changeLimit($event)">
+          <option *ngFor="let limit of [18, 5, 10, 16]" [value]="limit" [selected]="limit === limitPage">
+            {{ limit}}
+          </option>
         </select>
+
       </div>
     </div>
   </div>
@@ -41,4 +44,10 @@
     (editClient)="updateClient($event)"></app-modal-edit>
   <app-modal-delete [clientName]="clientToDelete?.name" [isModalOpen]="isDeleteModalOpen"
     (onClose)="isDeleteModalOpen = false" (deleteClient)="deleteClient()"></app-modal-delete>
+
+
+  <app-pagination [totalPages]="clientData?.totalPages ?? 0" [currentPage]="clientData?.currentPage ?? 1"
+    (pageChange)="changePage($event)">
+  </app-pagination>
+
 </section>

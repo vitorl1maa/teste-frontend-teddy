@@ -1,0 +1,33 @@
+@import "../../../../theme/theme";
+@import "../../../../../assets/styles/spacing";
+@import "../../../../../assets/styles/fontSize";
+@import "../../../../../assets/styles/variables";
+
+.pagination {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+
+  button {
+    background-color: transparent;
+    color: $text-color;
+    border: none;
+    padding: $spacing-md $spacing-xlg;
+    cursor: pointer;
+    border-radius: $border-radius;
+    @include font-size("md");
+    font-weight: bold;
+
+    &.active {
+      background-color: $primary-color;
+      font-weight: bold;
+      color: $white;
+    }
+
+    &:disabled {
+      background-color: transparent;
+      color: $text-color;
+      cursor: default;
+    }
+  }
+}

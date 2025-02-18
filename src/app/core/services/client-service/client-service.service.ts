@@ -14,8 +14,8 @@ export class ClientService {
   constructor(private http: HttpClient) { }
 
 
-  getClients(): Observable<ClientResponse> {
-    return this.http.get<ClientResponse>(`${this.baseUrl}`);
+  getClients(page: number, limit: number): Observable<ClientResponse> {
+    return this.http.get<ClientResponse>(`${this.baseUrl}?page=${page}&limit=${limit}`);
   }
 
 
@@ -27,7 +27,6 @@ export class ClientService {
   updateClient(clientId: number, client: FormClient): Observable<ClientResponse> {
     return this.http.patch<ClientResponse>(`${this.baseUrl}/${clientId}`, client);
   }
-
 
   deleteClient(clientId: number): Observable<string> {
     return this.http.delete(`${this.baseUrl}/${clientId}`, { responseType: 'text' });
