@@ -20,7 +20,7 @@ export class RegistrationPageComponent {
 
 
   onRegister() {
-    if (this.userName.trim()) {
+    if (this.userName) {
 
       this.cookieRegisterUser.setUserName(this.userName, 7);
 

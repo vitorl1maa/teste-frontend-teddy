@@ -24,6 +24,7 @@ export class InputComponent implements ControlValueAccessor {
   @Input() prefix: string = '';
   @Input() thousandSeparator: string = '.';
   @Input() decimalMarker: "." | "," | [".", ","] = ',';
+  // @Input() formControlName: string = ''
 
   onChange: any = () => { };
   onTouched: any = () => { };

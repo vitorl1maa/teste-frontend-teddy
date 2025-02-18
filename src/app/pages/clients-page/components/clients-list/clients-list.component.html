@@ -27,15 +27,18 @@
       <app-card-footer>
         <app-icon [icon]="isSelected(client.id) ? 'check' : 'plus'" [size]="'md'" (click)="handleSelect(client)">
         </app-icon>
-        <app-icon [icon]="'pencil'" [size]="'sm'"></app-icon>
-        <app-icon [icon]="'trash2'" [size]="'sm'" [color]="'dangerous'"></app-icon>
+        <app-icon [icon]="'pencil'" [size]="'sm'" (click)="setClientUpdate(client)"></app-icon>
+        <app-icon [icon]="'trash2'" [size]="'sm'" [color]="'dangerous'" (click)="setClientDelete(client)"></app-icon>
       </app-card-footer>
     </app-card-root>
   </div>
 
-  <app-button label="Criar cliente" [type]="'outline'"></app-button>
+  <app-button label="Criar cliente" [type]="'outline'" (click)="isCreateModalOpen = true"></app-button>
 
-  <!-- <app-modal-creat *ngIf="showModalCreate" (onClose)="closeModal()"></app-modal-creat>
-  <app-modal-edit *ngIf="showModalEdit" [clientData]="selectedClient" (onClose)="closeModal()"></app-modal-edit>
-  <app-modal-delete *ngIf="showModalDelete" [client]="selectedClient" (onClose)="closeModal()"></app-modal-delete> -->
+  <app-modal-creat [isModalOpen]="isCreateModalOpen" (onClose)="isCreateModalOpen = false"
+    (createClient)="createClient($event)"></app-modal-creat>
+  <app-modal-edit [clientData]="clientToUpdate" [isModalOpen]="isUpdateModalOpen" (onClose)="isUpdateModalOpen = false"
+    (editClient)="updateClient($event)"></app-modal-edit>
+  <app-modal-delete [clientName]="clientToDelete?.name" [isModalOpen]="isDeleteModalOpen"
+    (onClose)="isDeleteModalOpen = false" (deleteClient)="deleteClient()"></app-modal-delete>
 </section>

@@ -14,19 +14,12 @@ import { CommonModule } from '@angular/common';
 })
 export class ModalDeleteComponent {
   @Output() onClose = new EventEmitter<void>();
-  @Input() client: any;
+  @Output() deleteClient = new EventEmitter<void>();
+  @Input() clientName = '';
 
-  isModalOpen = true;
+  @Input() isModalOpen: boolean = false;
   modalTitle = 'Excluir cliente:';
   modalButtonText = 'Excluir cliente';
 
-  closeModal() {
-    this.isModalOpen = false;
-    this.onClose.emit();
-  }
 
-  confirmDelete() {
-    console.log(`Cliente  deletado!`);
-    this.closeModal();
-  }
 }

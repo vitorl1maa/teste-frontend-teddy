@@ -1,14 +1,22 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ClientResponse } from '../../../pages/clients-page/interfaces/client.interface';
+import { FormClient } from '../../../pages/clients-page/interfaces/formClient.interface';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService {
-  private baseUrl = 'https://boasorte.teddybackoffice.com.br/users';
+  private baseUrl = '/users';
+
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    }),
+    withCredentials: true
+  };
 
   constructor(private http: HttpClient) { }
 
@@ -18,7 +26,7 @@ export class ClientService {
   }
 
 
-  createClient(client: any): Observable<any> {
+  createClient(client: FormClient): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}`, client);
   }
 

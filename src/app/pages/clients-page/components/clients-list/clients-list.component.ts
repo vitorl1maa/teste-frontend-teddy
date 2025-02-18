@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Client, ClientResponse } from '../../interfaces/client.interface';
 import { ClientDataService } from '../../../../core/services/client-data-service/client-data.service';
+import { ClientService } from '../../../../core/services/client-service/client-service.service';
+import { FormClient } from '../../interfaces/formClient.interface';
 
 @Component({
   selector: 'app-clients-list',
@@ -9,13 +11,24 @@ import { ClientDataService } from '../../../../core/services/client-data-service
   styleUrl: './clients-list.component.scss'
 })
 export class ClientsListComponent implements OnInit {
-  @Output() createClient = new EventEmitter<void>();
+  @Output() getClientListEmit = new EventEmitter<void>();
 
   clientData: ClientResponse | null = null;
   clientsSelected: Client[] = []
+  isCreateModalOpen: boolean = false;
+  isUpdateModalOpen: boolean = false;
+  isDeleteModalOpen: boolean = false;
+  clientToDelete: any = ''
+  clientToUpdate: any = ''
+  formClient: FormClient = {
+    name: '',
+    salary: 0,
+    companyValuation: 0
+  }
 
 
   constructor(
+    private clientService: ClientService,
     private clientDataService: ClientDataService,
 
   ) { }
@@ -45,39 +58,45 @@ export class ClientsListComponent implements OnInit {
     return isClientSelected
   }
 
+  setClientUpdate(client: any) {
+    this.clientToUpdate = client;
+    this.isUpdateModalOpen = true
+  }
 
-  // addClient(client: ClientType): void {
-  //   this.clientApiService.createClient(client).subscribe({
-  //     next: (newClient) => {
-  //       const currentClients = this.clientsSubject.value;
-  //       this.clientsSubject.next([...currentClients, newClient]);
-  //     },
-  //     error: (err) => console.error('Erro ao adicionar cliente:', err)
-  //   });
-  // }
+  setClientDelete(client: any) {
+    this.clientToDelete = client;
+    this.isDeleteModalOpen = true
+  }
 
-  // updateClient(clientId: number, client: ClientType): void {
-  //   this.clientApiService.updateClient(clientId, client).subscribe({
-  //     next: (updatedClient) => {
-  //       const currentClients = this.clientsSubject.value;
-  //       const updatedClients = currentClients.map(c =>
-  //         c.id === clientId ? updatedClient : c
-  //       );
-  //       this.clientsSubject.next(updatedClients);
-  //     },
-  //     error: (err) => console.error('Erro ao atualizar cliente:', err)
-  //   });
-  // }
 
-  // deleteClient(clientId: number): void {
-  //   this.clientApiService.deleteClient(clientId).subscribe({
-  //     next: () => {
-  //       const currentClients = this.clientsSubject.value;
-  //       const updatedClients = currentClients.filter(c => c.id !== clientId);
-  //       this.clientsSubject.next(updatedClients);
-  //     },
-  //     error: (err) => console.error('Erro ao excluir cliente:', err)
-  //   });
-  // }
+  createClient(formClient: FormClient): void {
+    this.clientService.createClient(formClient).subscribe({
+      next: (res) => {
+        this.isCreateModalOpen = false
+        this.getClientListEmit.emit()
+      },
+      error: (err) => console.error('Erro ao adicionar cliente:', err)
+    });
+  }
+
+  updateClient(client: FormClient): void {
+    this.clientService.updateClient(this.clientToUpdate.id, client).subscribe({
+      next: (res) => {
+        this.isUpdateModalOpen = false
+        this.getClientListEmit.emit()
+      },
+      error: (err) => console.error('Erro ao atualizar cliente:', err)
+    });
+  }
+
+  deleteClient(): void {
+    this.clientService.deleteClient(this.clientToDelete.id).subscribe({
+      next: (res) => {
+        this.isDeleteModalOpen = false
+        this.getClientListEmit.emit()
+      },
+      error: (err) => console.error('Erro ao excluir cliente:', err)
+    });
+  }
 
 }

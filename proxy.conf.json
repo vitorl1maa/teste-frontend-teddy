@@ -1,0 +1,7 @@
+{
+  "/users": {
+    "target": "https://boasorte.teddybackoffice.com.br",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

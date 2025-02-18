@@ -1,15 +1,17 @@
 <app-modal-root *ngIf="isModalOpen">
-  <app-modal-header [title]="modalTitle" (onClose)="closeModal()"></app-modal-header>
+  <app-modal-header [title]="modalTitle" (onClose)="onClose.emit()"></app-modal-header>
 
   <app-modal-body>
-    <app-input type="text" [value]="clientData?.name" placeholder="Digite o nome:" size="md"></app-input>
-    <app-input type="currency" mask="separator.2" prefix="R$ " thousandSeparator="." decimalMarker=","
-      [value]="clientData?.salary" placeholder="Digite o salário:" size="md"></app-input>
-    <app-input type="currency" mask="separator.2" prefix="R$ " thousandSeparator="." decimalMarker=","
-      [value]="clientData?.companyValue" placeholder="Digite o valor da empresa:" size="md"></app-input>
+    <form [formGroup]="form">
+      <app-input formControlName="name" type="text" placeholder="Digite o nome:" size="md"></app-input>
+      <app-input formControlName="salary" type="currency" mask="separator.2" prefix="R$ " thousandSeparator="."
+        decimalMarker="," placeholder="Digite o salário:" size="md"></app-input>
+      <app-input formControlName="companyValuation" type="currency" mask="separator.2" prefix="R$ "
+        thousandSeparator="." decimalMarker="," placeholder="Digite o valor da empresa:" size="md"></app-input>
+    </form>
   </app-modal-body>
 
   <app-modal-footer>
-    <app-button [label]="modalButtonText" type="default" size="md" (click)="saveChanges()"></app-button>
+    <app-button [label]="modalButtonText" type="default" size="md" (click)="submit()"></app-button>
   </app-modal-footer>
 </app-modal-root>

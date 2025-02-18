@@ -1,11 +1,11 @@
 <app-modal-root *ngIf="isModalOpen">
-  <app-modal-header [title]="modalTitle" (onClose)="closeModal()"></app-modal-header>
+  <app-modal-header [title]="modalTitle" (onClose)="onClose.emit()"></app-modal-header>
 
   <app-modal-body>
-    <p>Você está prestes a excluir o cliente: <strong>Eduardo</strong></p>
+    <p>Você está prestes a excluir o cliente: <strong> {{clientName}}</strong></p>
   </app-modal-body>
 
   <app-modal-footer>
-    <app-button [label]="modalButtonText" type="default" size="md" (click)="confirmDelete()"></app-button>
+    <app-button [label]="modalButtonText" type="default" size="md" (click)="deleteClient.emit()"></app-button>
   </app-modal-footer>
 </app-modal-root>

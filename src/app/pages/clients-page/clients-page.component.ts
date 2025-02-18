@@ -41,6 +41,7 @@ export class ClientsPageComponent implements OnInit {
 
   ngOnInit() {
     this.getClients()
+
   }
 
   getClients(): void {
