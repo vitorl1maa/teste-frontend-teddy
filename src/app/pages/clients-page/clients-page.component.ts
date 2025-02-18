@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CLIENTS_MOCK } from '../../core/mocks/clients.mock';
 import { ClientsNavigation } from '../../core/enum/navigation.enum';
+import { ClientService } from '../../core/services/client-service/client-service.service';
+import { ClientDataService } from '../../core/services/client-data-service/client-data.service';
 
 @Component({
   selector: 'app-clients-page',
@@ -8,15 +10,19 @@ import { ClientsNavigation } from '../../core/enum/navigation.enum';
   templateUrl: './clients-page.component.html',
   styleUrl: './clients-page.component.scss'
 })
-export class ClientsPageComponent {
+export class ClientsPageComponent implements OnInit {
   clients = CLIENTS_MOCK.clients;
   selectedView: ClientsNavigation = ClientsNavigation.CLIENTS;
   ClientsNavigation = ClientsNavigation;
+  isLoading: boolean = false
+  clientList: any = []
+  showModalCreate = false;
+  showModalEdit = false;
+  showModalDelete = false;
 
   menuItems = [
     { label: 'Clientes', view: ClientsNavigation.CLIENTS },
     { label: 'Clientes Selecionados', view: ClientsNavigation.CLIENTSSELECTED },
-    { label: 'Sair', view: null }
   ];
 
   sideItems = [
@@ -25,46 +31,41 @@ export class ClientsPageComponent {
     { icon: 'products-icon', label: 'Produtos' }
   ];
 
+  constructor(
+    private clientService: ClientService,
+    private clientDataService: ClientDataService
+
+  ) {
+
+  }
+
+  ngOnInit() {
+    this.getClients()
+  }
+
+  getClients(): void {
+    this.isLoading = true;
+
+    this.clientService.getClients().subscribe({
+      next: (response) => {
+        this.clientDataService.updateClientJourneyData({
+          clientData: response
+        });
+      },
+      error: (err) => console.error('Erro ao carregar clientes:', err),
+      complete: () => {
+        this.isLoading = false;
+      }
+    });
+  }
+
 
   changeView(view: ClientsNavigation | null) {
     if (view !== null) {
       this.selectedView = view;
     } else {
-      this.logout();
+
     }
   }
-
-  logout() {
-
-  }
-
-  showModalCreate = false;
-  showModalEdit = false;
-  showModalDelete = false;
-
-  selectedClient = { name: '', salary: 0, companyValue: 0 };
-
-
-  openCreateModal() {
-    this.showModalCreate = true;
-  }
-
-  openEditModal(client: any) {
-    this.selectedClient = client;
-    this.showModalEdit = true;
-  }
-
-  openDeleteModal(client: any) {
-    this.selectedClient = client;
-    this.showModalDelete = true;
-  }
-
-  closeModal() {
-    this.showModalCreate = false;
-    this.showModalEdit = false;
-    this.showModalDelete = false;
-  }
-
-
 }
 

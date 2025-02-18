@@ -9,20 +9,36 @@ import { ButtonComponent } from "../../core/shared/components/button/button.comp
 import { ModalEditComponent } from "./components/modal-actions/modal-edit/modal-edit.component";
 import { ModalDeleteComponent } from "./components/modal-actions/modal-delete/modal-delete.component";
 import { ClientsSelectedComponent } from "./components/clients-selected/clients-selected.component";
+import { CardRootComponent } from '../../core/shared/components/card/card-root/card-root.component';
+import { CardHeaderComponent } from '../../core/shared/components/card/card-header/card-header.component';
+import { CardBoodyComponent } from '../../core/shared/components/card/card-boody/card-boody.component';
+import { CardFooterComponent } from '../../core/shared/components/card/card-footer/card-footer.component';
+import { IconComponent } from '../../core/shared/components/icon/icon.component';
+import { ModalRootComponent } from '../../core/shared/components/modal/modal-root/modal-root.component';
+import { ModalHeaderComponent } from '../../core/shared/components/modal/modal-header/modal-header.component';
+import { ModalBodyComponent } from '../../core/shared/components/modal/modal-body/modal-body.component';
+import { ModalFooterComponent } from '../../core/shared/components/modal/modal-footer/modal-footer.component';
 
 
 @NgModule({
-  declarations: [ClientsPageComponent],
+  declarations: [ClientsPageComponent, ClientsListComponent, ClientsSelectedComponent],
   imports: [
     CommonModule,
     ClientsPageRoutingModule,
     LayoutComponent,
-    ClientsListComponent,
     ModalCreatComponent,
     ButtonComponent,
     ModalEditComponent,
     ModalDeleteComponent,
-    ClientsSelectedComponent
+    CardRootComponent,
+    CardHeaderComponent,
+    CardBoodyComponent,
+    CardFooterComponent,
+    IconComponent,
+    ModalRootComponent,
+    ModalHeaderComponent,
+    ModalBodyComponent,
+    ModalFooterComponent
   ]
 })
 export class ClientsPageModule { }

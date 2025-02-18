@@ -4,6 +4,7 @@ import { IconComponent } from "../icon/icon.component";
 import { FormattedNamePipe } from '../../../pipes/formatted-name.pipe';
 import { CookieRegisterUser } from '../../../services/register-service/register.service';
 import { ClientsNavigation } from '../../../enum/navigation.enum';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -22,7 +23,7 @@ export class NavbarComponent implements OnInit {
   selectedView: ClientsNavigation | null = ClientsNavigation.CLIENTS;
 
 
-  constructor(private cookieRegisterUser: CookieRegisterUser) { }
+  constructor(private cookieRegisterUser: CookieRegisterUser, private router: Router) { }
 
   ngOnInit() {
     this.userName = this.cookieRegisterUser.getUserName();
@@ -35,5 +36,10 @@ export class NavbarComponent implements OnInit {
   selectView(view: ClientsNavigation | null) {
     this.viewChanged.emit(view);
     this.selectedView = view;
+  }
+
+  logout() {
+    this.cookieRegisterUser.deleteUserName();
+    this.router.navigate(['/']);
   }
 }

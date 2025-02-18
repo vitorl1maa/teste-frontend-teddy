@@ -17,7 +17,7 @@ export class CookieRegisterUser {
 
   getUserName(): string {
     const item = this.cookieService.get(UserCookieEnum.USER_NAME);
-    return item ? JSON.parse(item) : 'Usuário';
+    return item ? JSON.parse(item) : '';
   }
 
   deleteUserName() {

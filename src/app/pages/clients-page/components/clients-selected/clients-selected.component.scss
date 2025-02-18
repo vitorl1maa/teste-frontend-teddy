@@ -4,15 +4,12 @@
 @import "../../../../../assets/styles/variables";
 
 .client-selected-component {
-  min-height: 100vh;
+  height: 100vh;
   margin-top: $spacing-md;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
   gap: $spacing-giant;
   margin-bottom: $spacing-xxlg;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1024px) {
     width: 100%;
     flex-direction: column;
   }
@@ -21,6 +18,7 @@
     .client-header-list {
       display: flex;
       justify-content: space-between;
+      margin-bottom: $spacing-lg;
 
       > p {
         @include font-size("lg");
@@ -67,9 +65,21 @@
   }
 
   .card-grid {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     gap: $spacing-giant;
+    margin-bottom: $spacing-giant;
+
+    .no-clients-message {
+      margin: $spacing-giant 0;
+    }
+
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      width: 100%;
+      gap: $spacing-md;
+    }
   }
 }

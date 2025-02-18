@@ -1,54 +1,83 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CardRootComponent } from '../../../../core/shared/components/card/card-root/card-root.component';
-import { CardHeaderComponent } from '../../../../core/shared/components/card/card-header/card-header.component';
-import { CardBoodyComponent } from '../../../../core/shared/components/card/card-boody/card-boody.component';
-import { CardFooterComponent } from '../../../../core/shared/components/card/card-footer/card-footer.component';
-import { IconComponent } from '../../../../core/shared/components/icon/icon.component';
-import { CommonModule } from '@angular/common';
-import { ButtonComponent } from "../../../../core/shared/components/button/button.component";
-import { ClientSelectionService } from '../../../../core/services/client-selection/client-selection.service';
-import { ClientType } from './types/client';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Client, ClientResponse } from '../../interfaces/client.interface';
+import { ClientDataService } from '../../../../core/services/client-data-service/client-data.service';
 
 @Component({
   selector: 'app-clients-list',
-  imports: [CommonModule, CardRootComponent, CardHeaderComponent, CardBoodyComponent, CardFooterComponent, IconComponent, ButtonComponent],
   templateUrl: './clients-list.component.html',
+  standalone: false,
   styleUrl: './clients-list.component.scss'
 })
-export class ClientsListComponent {
-  @Output() createClient = new EventEmitter<any>();
-  @Output() editClient = new EventEmitter<void>();
-  @Output() deleteClient = new EventEmitter<any>();
-  @Input() clients: ClientType[] = [];
+export class ClientsListComponent implements OnInit {
+  @Output() createClient = new EventEmitter<void>();
+
+  clientData: ClientResponse | null = null;
+  clientsSelected: Client[] = []
 
 
-  constructor(private clientSelectionService: ClientSelectionService) { }
+  constructor(
+    private clientDataService: ClientDataService,
 
-  toggleIcon(client: ClientType) {
-    this.clientSelectionService.toggleClientSelection(client);
+  ) { }
+
+  ngOnInit(): void {
+    this.clientDataService.clientJourney$.subscribe((data) => {
+      this.clientData = data?.clientData
+    })
   }
 
-  isSelected(clientId: number): Observable<boolean> {
-    return this.clientSelectionService.selectedClients$.pipe(
-      map(selectedClients => selectedClients.some(client => client.id === clientId))
-    );
+  handleSelect(client: Client) {
+    const clientIndex = this.clientsSelected.findIndex(currentClient => currentClient.id === client.id)
+
+    if (clientIndex === -1) {
+      this.clientsSelected.push(client)
+      this.clientDataService.updateClientJourneyData({ clientSelected: this.clientsSelected })
+      return
+    }
+
+    this.clientsSelected.splice(clientIndex, 1)
+    this.clientDataService.updateClientJourneyData({ clientSelected: this.clientsSelected })
+  }
+
+  isSelected(clientId: number) {
+    const isClientSelected = this.clientsSelected.find(currentClient => currentClient.id === clientId)
+
+    return isClientSelected
   }
 
 
-  onCreateClient() {
-    this.createClient.emit()
-  }
+  // addClient(client: ClientType): void {
+  //   this.clientApiService.createClient(client).subscribe({
+  //     next: (newClient) => {
+  //       const currentClients = this.clientsSubject.value;
+  //       this.clientsSubject.next([...currentClients, newClient]);
+  //     },
+  //     error: (err) => console.error('Erro ao adicionar cliente:', err)
+  //   });
+  // }
 
-  onEditClient(client: any) {
-    this.editClient.emit(client);
-  }
+  // updateClient(clientId: number, client: ClientType): void {
+  //   this.clientApiService.updateClient(clientId, client).subscribe({
+  //     next: (updatedClient) => {
+  //       const currentClients = this.clientsSubject.value;
+  //       const updatedClients = currentClients.map(c =>
+  //         c.id === clientId ? updatedClient : c
+  //       );
+  //       this.clientsSubject.next(updatedClients);
+  //     },
+  //     error: (err) => console.error('Erro ao atualizar cliente:', err)
+  //   });
+  // }
 
-  onDeleteClient(client: any) {
-    this.deleteClient.emit(client);
-  }
-
+  // deleteClient(clientId: number): void {
+  //   this.clientApiService.deleteClient(clientId).subscribe({
+  //     next: () => {
+  //       const currentClients = this.clientsSubject.value;
+  //       const updatedClients = currentClients.filter(c => c.id !== clientId);
+  //       this.clientsSubject.next(updatedClients);
+  //     },
+  //     error: (err) => console.error('Erro ao excluir cliente:', err)
+  //   });
+  // }
 
 }

@@ -29,7 +29,7 @@ export class InputComponent implements ControlValueAccessor {
   onTouched: any = () => { };
 
   writeValue(value: string): void {
-    this.value = value;
+    this.value = value || '';
   }
 
   registerOnChange(fn: any): void {

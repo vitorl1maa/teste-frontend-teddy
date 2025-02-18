@@ -3,8 +3,7 @@
 
     <ng-content>
       <div *ngIf="selectedView === ClientsNavigation.CLIENTS">
-        <app-clients-list [clients]="clients" (editClient)="openEditModal($event)"
-          (deleteClient)="openDeleteModal($event)" (createClient)="openCreateModal()">
+        <app-clients-list>
         </app-clients-list>
       </div>
 
@@ -12,10 +11,5 @@
         <app-clients-selected></app-clients-selected>
       </div>
     </ng-content>
-
-    <app-modal-creat *ngIf="showModalCreate" (onClose)="closeModal()"></app-modal-creat>
-    <app-modal-edit *ngIf="showModalEdit" [clientData]="selectedClient" (onClose)="closeModal()"></app-modal-edit>
-    <app-modal-delete *ngIf="showModalDelete" [client]="selectedClient" (onClose)="closeModal()"></app-modal-delete>
-
   </main>
 </app-layout>

@@ -16,7 +16,4 @@ export class LayoutComponent {
   changeView(view: ClientsNavigation | null) {
     this.viewChanged.emit(view);
   }
-
-
-
 }

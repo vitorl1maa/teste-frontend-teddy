@@ -3,7 +3,8 @@
 
   <section>
     <app-input type="text" placeholder="Digite seu nome:" size="lg" [(ngModel)]="userName"></app-input>
-    <app-button label="Entrar" [type]="userName ? 'default' : 'disabled'" size="lg" (click)="onRegister()"
-      [disabled]="!userName"></app-button>
+    <app-button label="Entrar" [type]="userName.length > 0 ? 'default' : 'disabled'" size="lg" (click)="onRegister()"
+      [disabled]="userName.length === 0">
+    </app-button>
   </section>
 </main>

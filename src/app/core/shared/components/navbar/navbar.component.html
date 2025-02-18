@@ -21,7 +21,12 @@
       <div>
         <ul class="menu navigation-menu-mobile">
           <li *ngFor="let item of menuItems">
-            <a [href]="">{{ item.label }}</a>
+            <a [href]="" (click)="selectView(item.view)" (click)="toggleMenu()"
+              [ngClass]="{'active': selectedView === item.view}">{{
+              item.label }}</a>
+          </li>
+          <li>
+            <a href="" (click)="logout()">Sair</a>
           </li>
         </ul>
       </div>
@@ -42,6 +47,9 @@
       <ul class="menu">
         <li *ngFor="let item of menuItems">
           <a (click)="selectView(item.view)" [ngClass]="{'active': selectedView === item.view}">{{ item.label }}</a>
+        </li>
+        <li>
+          <a href="" (click)="logout()">Sair</a>
         </li>
       </ul>
     </div>
