@@ -19,12 +19,7 @@ export class InputComponent implements ControlValueAccessor {
   @Input() type: 'text' | 'currency' = 'text';
   @Input() size: 'sm' | 'md' | 'lg' = 'md';
   @Input() disabled: boolean = false;
-  @Input() value: any = '';
-  @Input() mask: string = '';
-  @Input() prefix: string = '';
-  @Input() thousandSeparator: string = '.';
-  @Input() decimalMarker: "." | "," | [".", ","] = ',';
-  // @Input() formControlName: string = ''
+  @Input() value: string = '';
 
   onChange: any = () => { };
   onTouched: any = () => { };
@@ -48,21 +43,6 @@ export class InputComponent implements ControlValueAccessor {
     this.value = value;
     this.onChange(value);
     this.onTouched();
-  }
-
-  getMask(): any {
-    if (this.type === 'currency') {
-      return 'separator.2';
-    }
-    return '';
-  }
-
-  getMaskConfig(): any {
-    return {
-      prefix: this.prefix,
-      thousandSeparator: this.thousandSeparator,
-      decimalMarker: this.decimalMarker,
-    };
   }
 
 }
