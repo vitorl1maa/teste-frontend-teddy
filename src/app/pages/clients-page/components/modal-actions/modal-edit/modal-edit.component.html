@@ -4,10 +4,9 @@
   <app-modal-body>
     <form [formGroup]="form" class="form-modal">
       <app-input formControlName="name" type="text" placeholder="Digite o nome:" size="md"></app-input>
-      <app-input formControlName="salary" type="currency" mask="separator.2" prefix="R$ " thousandSeparator="."
-        decimalMarker="," placeholder="Digite o salário:" size="md"></app-input>
-      <app-input formControlName="companyValuation" type="currency" mask="separator.2" prefix="R$ "
-        thousandSeparator="." decimalMarker="," placeholder="Digite o valor da empresa:" size="md"></app-input>
+      <app-input formControlName="salary" type="currency" placeholder="Digite o salário:" size="md"></app-input>
+      <app-input formControlName="companyValuation" type="currency" placeholder="Digite o valor da empresa:"
+        size="md"></app-input>
     </form>
   </app-modal-body>
 

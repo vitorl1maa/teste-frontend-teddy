@@ -11,13 +11,6 @@ import { FormClient } from '../../../pages/clients-page/interfaces/formClient.in
 export class ClientService {
   private baseUrl = '/users';
 
-  private httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    }),
-    withCredentials: true
-  };
-
   constructor(private http: HttpClient) { }
 
 
@@ -26,17 +19,17 @@ export class ClientService {
   }
 
 
-  createClient(client: FormClient): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}`, client);
+  createClient(client: FormClient): Observable<ClientResponse> {
+    return this.http.post<ClientResponse>(`${this.baseUrl}`, client);
   }
 
 
-  updateClient(clientId: number, client: any): Observable<any> {
-    return this.http.put<any>(`${this.baseUrl}/${clientId}`, client);
+  updateClient(clientId: number, client: FormClient): Observable<ClientResponse> {
+    return this.http.patch<ClientResponse>(`${this.baseUrl}/${clientId}`, client);
   }
 
 
-  deleteClient(clientId: number): Observable<void> {
-    return this.http.delete<void>(`${this.baseUrl}/${clientId}`);
+  deleteClient(clientId: number): Observable<string> {
+    return this.http.delete(`${this.baseUrl}/${clientId}`, { responseType: 'text' });
   }
 }
