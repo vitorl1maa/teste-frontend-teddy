@@ -19,6 +19,7 @@ import { ModalHeaderComponent } from '../../core/shared/components/modal/modal-h
 import { ModalBodyComponent } from '../../core/shared/components/modal/modal-body/modal-body.component';
 import { ModalFooterComponent } from '../../core/shared/components/modal/modal-footer/modal-footer.component';
 import { LoadingComponent } from "../../core/shared/components/loading/loading.component";
+import { CurrencyFormatPipe } from '../../core/pipes/formattedValue/formatted-value.pipe';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { LoadingComponent } from "../../core/shared/components/loading/loading.c
     ModalHeaderComponent,
     ModalBodyComponent,
     ModalFooterComponent,
-    LoadingComponent
+    LoadingComponent,
+    CurrencyFormatPipe
   ]
 })
 export class ClientsPageModule { }

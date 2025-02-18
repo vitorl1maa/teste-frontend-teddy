@@ -46,7 +46,7 @@
   .user-text {
     @include font-size("md");
     font-weight: normal;
-
+    padding: 0;
     > span {
       font-weight: bold;
     }
@@ -173,7 +173,6 @@
       }
     }
 
-    // Hover nos botões de menu e fechar
     .menu-button,
     .close-button {
       display: flex;
@@ -238,7 +237,6 @@
     left: 0;
   }
 
-  // Ajusta o botão do menu
   .menu-button {
     background-color: transparent;
     border: none;

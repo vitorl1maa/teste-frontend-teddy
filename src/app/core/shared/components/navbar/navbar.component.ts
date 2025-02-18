@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IconComponent } from "../icon/icon.component";
-import { FormattedNamePipe } from '../../../pipes/formatted-name.pipe';
+import { FormattedNamePipe } from '../../../pipes/formattedName/formatted-name.pipe';
 import { CookieRegisterUser } from '../../../services/register-service/register.service';
 import { ClientsNavigation } from '../../../enum/navigation.enum';
 import { Router } from '@angular/router';

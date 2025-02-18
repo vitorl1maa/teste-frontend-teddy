@@ -10,8 +10,8 @@
       <app-card-root *ngFor="let client of clientsSelected">
         <app-card-header [title]="client.name"></app-card-header>
         <app-card-boody>
-          <p>Salário: R${{ client.salary }}</p>
-          <p>Empresa: R${{ client.companyValuation }}</p>
+          <p>Salário: {{ client.salary | currencyFormat }}</p>
+          <p>Empresa: {{ client.companyValuation | currencyFormat }}</p>
         </app-card-boody>
         <app-card-footer>
           <span></span>
