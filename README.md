@@ -1,59 +1,64 @@
-# TesteFrontendTeddy
+# teste-frontend-teddy
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
+## 📌 Sobre o Projeto
+Este projeto é uma aplicação frontend desenvolvida em **Angular**.
 
-## Development server
+## 🚀 Como Rodar o Projeto
 
-To start a local development server, run:
+### 🛠️ Pré-requisitos
+Certifique-se de ter instalado:
+- **Node.js** (versão recomendada: 18 ou superior)
+- **Angular CLI** (instalar via `npm install -g @angular/cli`)
+- **Yarn** ou **npm** para gerenciamento de pacotes
 
-```bash
-ng serve
+### 🔧 Passos para rodar o projeto
+
+1. **Clone o repositório**
+```sh
+  git clone https://github.com/seu-usuario/teste-frontend-teddy.git
+  cd teste-frontend-teddy
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+2. **Instale as dependências**
+```sh
+  npm install  # ou yarn install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
+3. **Inicie o servidor de desenvolvimento**
+```sh
+  npm start  # ou yarn start
 ```
 
-## Building
+O projeto estará disponível em `http://localhost:4200/`.
 
-To build the project run:
+## 🛠️ Ferramentas Utilizadas
 
-```bash
-ng build
+- **Angular 19**: Framework para desenvolvimento frontend
+- **RxJS**: Programação reativa
+- **ngx-mask**: Máscara para inputs
+- **ngx-pagination**: Paginação de listas
+- **ngx-cookie-service**: Manipulação de cookies
+- **Lucide Angular**: Ícones
+- **Karma & Jasmine**: Testes unitários
+
+## 🔀 Proxy de API
+O projeto usa um proxy para requisições de API. A configuração está no arquivo `proxy.conf.json`.
+```json
+{
+  "rewrites": [
+    {
+      "source": "/users/:path*",
+      "destination": "https://boasorte.teddybackoffice.com.br/users/:path*"
+    }
+  ]
+}
 ```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+## 📦 Build
+Para gerar a versão de produção:
+```sh
+  npm run build  # ou yarn build
 ```
+Os arquivos serão gerados na pasta `dist/`.
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 📄 Licença
+Este projeto é privado e não possui uma licença pública definida.
