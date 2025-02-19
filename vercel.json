@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/users/:path*",
+      "destination": "https://boasorte.teddybackoffice.com.br/users/:path*"
+    }
+  ]
+}
