@@ -127,8 +127,10 @@ export class ClientsListComponent implements OnInit {
   changeLimit(event: Event) {
     const target = event.target as HTMLSelectElement;
     this.limitPage = Number(target.value);
+    this.currentPage = 1;
     localStorage.setItem('limitPage', this.limitPage.toString());
     this.fetchClients();
   }
+
 
 }

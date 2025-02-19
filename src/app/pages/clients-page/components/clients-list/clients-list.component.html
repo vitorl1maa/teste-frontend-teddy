@@ -6,7 +6,7 @@
       <div class="client-header-select">
         <span>Clientes por página: </span>
         <select (change)="changeLimit($event)">
-          <option *ngFor="let limit of [18, 5, 10, 16]" [value]="limit" [selected]="limit === limitPage">
+          <option *ngFor="let limit of [18, 16, 5, 1]" [value]="limit" [selected]="limit === limitPage">
             {{ limit}}
           </option>
         </select>
